@@ -1,0 +1,1 @@
+{"mappings":"AEAA","sources":["index.76c5d1ee.css","src/sass/index.scss","src/sass/main-page/header.scss"],"sourcesContent":[".ninja-logo {\n  width: 67px;\n}\n\n/*# sourceMappingURL=index.76c5d1ee.css.map */\n","@import './main-page/index.scss';\n// @import './example';\n",".ninja-logo {\n  width: 67px;\n}\n"],"names":[],"version":3,"file":"index.76c5d1ee.css.map"}
