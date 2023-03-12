@@ -1,0 +1,22 @@
+.section-category {
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.category-list {
+  display: flex;
+  gap: 4px;
+
+  list-style: none;
+  overflow: hidden;
+}
+
+.category-btn {
+  width: 54px;
+  height: 54px;
+  padding: 8px;
+
+  background-color: $SectionColor;
+  border-radius: 12px;
+  border: 0;
+}
