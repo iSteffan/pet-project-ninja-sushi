@@ -1,0 +1,32 @@
+body {
+  // font-family: $fontMontserrat;
+  // font-size: $baseFontSize;
+  // color: $BodyColor;
+  background-color: $BackgroundColor;
+}
+
+.container {
+  width: 100%;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  @include mobile {
+    max-width: 375px;
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+
+  @include desktop {
+    max-width: 1576px;
+
+    padding-right: 85px;
+    padding-left: 85px;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
