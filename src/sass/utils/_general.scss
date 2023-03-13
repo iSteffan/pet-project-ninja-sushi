@@ -1,11 +1,12 @@
 body {
-  // font-family: $fontMontserrat;
+  font-family: $fontInter;
   // font-size: $baseFontSize;
-  // color: $BodyColor;
+  color: $MainFontColor;
   background-color: $BackgroundColor;
 }
 
 .container {
+  outline: 1px solid tomato;
   width: 100%;
 
   margin-right: auto;
