@@ -5,6 +5,7 @@ export const sushi = [
     weight: 40,
     description: 'Лосось, норі, рис, ікра, соус шрірача, японський майонез',
     image: '/src/images/sushi/gunkan-losos.jpg',
+    alt: 'Гункан лосось',
   },
   {
     name: 'Гункан креветка',
@@ -12,6 +13,7 @@ export const sushi = [
     weight: 40,
     description: 'Норі, рис, ікра, креветка, соус шрірача, японський майонез',
     image: '/src/images/sushi/gunkan-krevetka.jpg',
+    alt: 'Гункан креветка',
   },
   {
     name: 'Гункан з тунцем і трюфелем',
@@ -20,6 +22,7 @@ export const sushi = [
     description:
       'Норі, рис, японський майонез, бальзамик, трюфельна сальса, цибуля шніт',
     image: '/src/images/sushi/gunkan-tunec-trufel.jpg',
+    alt: 'Гункан з тунцем і трюфелем',
   },
   {
     name: 'Гункан тунець спайсі',
@@ -28,6 +31,7 @@ export const sushi = [
     description:
       'Норі, рис, тунець, соус шрірача, японський майонез, кунжутна олія, цибуля шніт,',
     image: '/src/images/sushi/gunkan-tunec-spicy.jpg',
+    alt: 'Гункан тунець спайсі',
   },
   {
     name: 'Нігірі вугор',
@@ -35,6 +39,7 @@ export const sushi = [
     weight: 40,
     description: 'Норі, рис, кунжут, cоус унаги, вугор',
     image: '/src/images/sushi/nigiri-ugor.jpg',
+    alt: 'Нігірі вугор',
   },
   {
     name: 'Нігірі вугор',
@@ -42,6 +47,7 @@ export const sushi = [
     weight: 232,
     description: 'Норі, рис, кунжут, cоус унаги, вугор',
     image: '/src/images/sushi/nigiri-ugor2.jpg',
+    alt: 'Нігірі вугор',
   },
   {
     name: 'Гункан вугор',
@@ -49,6 +55,7 @@ export const sushi = [
     weight: 40,
     description: 'норі, рис, вугор, ікра, соус шрірача, японський майонез',
     image: '/src/images/sushi/nigiri-ugor2.jpg',
+    alt: 'Гункан вугор',
   },
   {
     name: 'Нігірі тунець',
@@ -56,5 +63,6 @@ export const sushi = [
     weight: 40,
     description: 'Рис, тунець',
     image: '/src/images/sushi/nigiri-tunec.jpg',
+    alt: 'Нігірі тунець',
   },
 ];
