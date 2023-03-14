@@ -4,7 +4,7 @@ import { sushiMarkup } from './js/generate-sushi-cards';
 console.log(sushi);
 
 const refs = {
-  sectionSushi: document.querySelector('.section-sushi'),
+  sectionSushi: document.querySelector('.section-sushi__container'),
 };
 
 refs.sectionSushi.insertAdjacentHTML('beforeend', sushiMarkup);

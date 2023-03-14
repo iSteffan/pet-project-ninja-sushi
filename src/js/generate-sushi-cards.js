@@ -5,7 +5,7 @@ export const sushiMarkup = sushi
     return `<div>
   <div>
     <a href="">
-      <img src="${item.image}" alt="${item.alt}" />
+        <img src=${item.image} alt="${item.alt}" class="sushi-foto"/>
     </a>
   </div>
   <div>
