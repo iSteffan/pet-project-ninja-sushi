@@ -109,7 +109,7 @@ export const sushi = [
   },
   {
     name: 'Нігірі тунець',
-    price: 190,
+    price: 110,
     weight: 40,
     description: 'Рис, тунець',
     image: nigiriTunecURL,
