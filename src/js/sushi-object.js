@@ -1,10 +1,46 @@
+// Створюю для кожної картинки екземпляр класу URL (відповідно до доків парселя)
+//та вношу цей екземпляр як властивість у масив об'єктів (якщо прописати просто шлях то картинка грузиться як текст)
+
+const gunkanKrevetkaURL = new URL(
+  '../images/sushi/gunkan-krevetka.jpg',
+  import.meta.url
+);
+const gunkanLososURL = new URL(
+  '../images/sushi/gunkan-losos.jpg',
+  import.meta.url
+);
+const gunkanTunecTrufelURL = new URL(
+  '../images/sushi/gunkan-tunec-trufel.jpg',
+  import.meta.url
+);
+const gunkanTunecSpicyURL = new URL(
+  '../images/sushi/gunkan-tunec-spicy.jpg',
+  import.meta.url
+);
+const nigiriVygorURL = new URL(
+  '../images/sushi/nigiri-ugor.jpg',
+  import.meta.url
+);
+const nigiriVygor2URL = new URL(
+  '../images/sushi/nigiri-ugor2.jpg',
+  import.meta.url
+);
+const gunkanVygorURL = new URL(
+  '../images/sushi/gunkan-ugor.jpg',
+  import.meta.url
+);
+const nigiriTunecURL = new URL(
+  '../images/sushi/nigiri-tunec.jpg',
+  import.meta.url
+);
+
 export const sushi = [
   {
     name: 'Гункан лосось',
     price: 110,
     weight: 40,
     description: 'Лосось, норі, рис, ікра, соус шрірача, японський майонез',
-    image: '/src/images/sushi/gunkan-losos.jpg',
+    image: gunkanLososURL,
     alt: 'Гункан лосось',
   },
   {
@@ -12,7 +48,7 @@ export const sushi = [
     price: 100,
     weight: 40,
     description: 'Норі, рис, ікра, креветка, соус шрірача, японський майонез',
-    image: '/src/images/sushi/gunkan-krevetka.jpg',
+    image: gunkanKrevetkaURL,
     alt: 'Гункан креветка',
   },
   {
@@ -21,7 +57,7 @@ export const sushi = [
     weight: 40,
     description:
       'Норі, рис, японський майонез, бальзамик, трюфельна сальса, цибуля шніт',
-    image: '/src/images/sushi/gunkan-tunec-trufel.jpg',
+    image: gunkanTunecTrufelURL,
     alt: 'Гункан з тунцем і трюфелем',
   },
   {
@@ -30,7 +66,7 @@ export const sushi = [
     weight: 40,
     description:
       'Норі, рис, тунець, соус шрірача, японський майонез, кунжутна олія, цибуля шніт,',
-    image: '/src/images/sushi/gunkan-tunec-spicy.jpg',
+    image: gunkanTunecSpicyURL,
     alt: 'Гункан тунець спайсі',
   },
   {
@@ -38,7 +74,7 @@ export const sushi = [
     price: 115,
     weight: 40,
     description: 'Норі, рис, кунжут, cоус унаги, вугор',
-    image: '/src/images/sushi/nigiri-ugor.jpg',
+    image: nigiriVygorURL,
     alt: 'Нігірі вугор',
   },
   {
@@ -46,7 +82,7 @@ export const sushi = [
     price: 190,
     weight: 232,
     description: 'Норі, рис, кунжут, cоус унаги, вугор',
-    image: '/src/images/sushi/nigiri-ugor2.jpg',
+    image: nigiriVygor2URL,
     alt: 'Нігірі вугор',
   },
   {
@@ -54,7 +90,7 @@ export const sushi = [
     price: 115,
     weight: 40,
     description: 'норі, рис, вугор, ікра, соус шрірача, японський майонез',
-    image: '/src/images/sushi/nigiri-ugor2.jpg',
+    image: gunkanVygorURL,
     alt: 'Гункан вугор',
   },
   {
@@ -62,7 +98,7 @@ export const sushi = [
     price: 190,
     weight: 40,
     description: 'Рис, тунець',
-    image: '/src/images/sushi/nigiri-tunec.jpg',
+    image: nigiriTunecURL,
     alt: 'Нігірі тунець',
   },
 ];

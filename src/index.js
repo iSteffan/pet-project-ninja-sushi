@@ -7,4 +7,4 @@ const refs = {
   sectionSushi: document.querySelector('.section-sushi__container'),
 };
 
-refs.sectionSushi.insertAdjacentHTML('beforeend', sushiMarkup);
+refs.sectionSushi.insertAdjacentHTML('afterbegin', sushiMarkup);
