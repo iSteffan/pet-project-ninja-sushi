@@ -51,7 +51,37 @@
 }
 
 .product-price {
+  margin-right: 43px;
+
   font-weight: 700;
   font-size: 24px;
   line-height: 1.25;
+}
+
+.favourite-icon {
+  // padding: 8px;
+  // background-color: $BackgroundColor;
+}
+
+.product-favourite-btn {
+  margin-right: 6px;
+  padding: 0;
+
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 12px;
+  background-color: $BackgroundColor;
+}
+
+.product-add-to-cart-btn {
+  width: 56px;
+  height: 40px;
+  border: 0;
+  border-radius: 12px;
+  background-color: $BackgroundColor;
+}
+
+.price-wrapper {
+  display: flex;
 }
