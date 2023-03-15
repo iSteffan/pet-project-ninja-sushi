@@ -8,3 +8,14 @@ const refs = {
 };
 
 refs.sectionSushi.insertAdjacentHTML('afterbegin', sushiMarkup);
+
+const hit = document.querySelector('.additional-info__hit');
+const newW = document.querySelector('.additional-info__new');
+
+console.log(hit);
+
+// function checkEmptyField() {
+//     if (hit.value === "") {
+
+//     }
+// }

@@ -114,7 +114,7 @@ export const sushi = [
     description: 'Рис, тунець',
     image: nigiriTunecURL,
     alt: 'Нігірі тунець',
-    hit: '',
-    new: '',
+    hit: 'Hit',
+    new: 'New',
   },
 ];

@@ -1,3 +1,7 @@
+.section-sushi {
+  margin-top: 48px;
+}
+
 .section-sushi__container {
   display: flex;
   flex-direction: column;
@@ -10,6 +14,9 @@
 }
 
 .product-card {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
   background-color: $SectionColor;
   border-radius: 12px;
 }
@@ -51,7 +58,7 @@
 }
 
 .product-price {
-  margin-right: 43px;
+  margin-right: 30px;
 
   font-weight: 700;
   font-size: 24px;
@@ -84,4 +91,35 @@
 
 .price-wrapper {
   display: flex;
+  align-items: center;
+}
+
+.additional-info {
+  display: flex;
+  gap: 4px;
+}
+
+.additional-info__hit {
+  padding: 2px 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.42;
+  color: $AccentColor2;
+  background-color: $BGCinfo2;
+  border-radius: 6px;
+}
+
+.additional-info__new {
+  padding: 2px 8px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.42;
+  color: $AccentColor;
+  background-color: $BGCinfo1;
+  border-radius: 6px;
+}
+
+.product-info {
+  width: 211px;
 }
