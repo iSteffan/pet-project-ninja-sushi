@@ -1,21 +1,18 @@
-import { sushi } from './js/sushi-object';
 import { sushiMarkup } from './js/generate-sushi-cards';
 
-console.log(sushi);
-
 const refs = {
-  sectionSushi: document.querySelector('.section-sushi__container'),
+  sushiCardContainer: document.querySelector('.section-sushi__container'),
+  loadSushiBtn: document.querySelector('.load-more-btn-sushi'),
 };
 
-refs.sectionSushi.insertAdjacentHTML('afterbegin', sushiMarkup);
+// Вставляємо згенеровану розмітку карток суші в DOM
+refs.sushiCardContainer.insertAdjacentHTML('afterbegin', sushiMarkup);
 
-const hit = document.querySelector('.additional-info__hit');
-const newW = document.querySelector('.additional-info__new');
+refs.loadSushiBtn.addEventListener('click', onLoadMoreSushiClick);
 
-console.log(hit);
-
-// function checkEmptyField() {
-//     if (hit.value === "") {
-
-//     }
-// }
+function onLoadMoreSushiClick(e) {
+  // const productCard = document.querySelector('.additional-info__new');
+  // // productCard.style.display = block;
+  // productCard.style.backgroundColor = 'teal';
+  // console.log(e);
+}

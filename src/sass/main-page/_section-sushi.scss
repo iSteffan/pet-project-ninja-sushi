@@ -2,6 +2,13 @@
   margin-top: 48px;
 }
 
+.section-sushi__title {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
 .section-sushi__container {
   display: flex;
   flex-direction: column;
@@ -29,12 +36,19 @@
   border-radius: 12px;
 }
 
+.product-card:nth-child(n + 5) {
+  display: none;
+}
+
 .load-more-btn-sushi {
+  display: block;
   margin-top: 18px;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 16px;
   padding-bottom: 16px;
 
-  width: 100%;
+  width: 343px;
   font-size: 16px;
   line-height: 1.5;
   color: $AccentColor;
@@ -74,11 +88,6 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.25;
-}
-
-.favourite-icon {
-  // padding: 8px;
-  // background-color: $BackgroundColor;
 }
 
 .product-favourite-btn {
