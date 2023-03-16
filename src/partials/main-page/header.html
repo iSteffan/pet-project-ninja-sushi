@@ -2,9 +2,13 @@
   <div class="container">
     <div class="header-wrapper">
       <a href="./index.html" class=""
-        ><svg width="67" height="28" class="ninja-logo">
+        ><svg width="67" height="28" class="ninja-logo__mobile">
           <use
             href="./images/symbol-defs.svg#ninja-sushi-logo-mobile"
+          ></use></svg
+        ><svg width="214" height="48" class="ninja-logo__desktop">
+          <use
+            href="./images/symbol-defs.svg#ninja-sushi-logo-desktop"
           ></use></svg
       ></a>
       <form class="choose-city">
@@ -15,30 +19,61 @@
           class="input-city"
         />
       </form>
+      <nav>
+        <ul class="nav-list">
+          <li class="nav-list__item">
+            <a href="./" class="nav-list__link">Главная</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="./" class="nav-list__link">Доставка</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="./" class="nav-list__link">О нас</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="./" class="nav-list__link">Новости</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="tel:+380976993438" class="nav-list__link phone-correction"
+              ><svg width="24" height="24" class="">
+                <use href="./images/symbol-defs.svg#phone"></use></svg
+              >+38 097 699 34 38</a
+            >
+          </li>
+        </ul>
+      </nav>
       <ul class="header-list">
         <li class="header-list__item">
           <a href="./" class="header-list__link"
-            ><svg width="40" height="40" class="header-list__item-icon">
+            ><svg width="40" height="40" class="">
               <use href="./images/symbol-defs.svg#bell-mobile"></use></svg
           ></a>
         </li>
         <li class="header-list__item">
           <a href="./" class="header-list__link"
-            ><svg width="40" height="40" class="header-list__item-icon">
+            ><svg width="40" height="40" class="">
               <use href="./images/symbol-defs.svg#favourite-mobile"></use></svg
           ></a>
         </li>
         <li class="header-list__item">
           <a href="./" class="header-list__link"
-            ><svg width="40" height="40" class="header-list__item-icon">
+            ><svg width="40" height="40" class="">
               <use href="./images/symbol-defs.svg#user-mobile"></use></svg
           ></a>
         </li>
-        <li class="header-list__item">
+        <li class="header-list__item menu-btn-mobile">
           <a href="./" class="header-list__link"
-            ><svg width="40" height="40" class="header-list__item-icon">
+            ><svg width="40" height="40" class="">
               <use href="./images/symbol-defs.svg#menu-btn-mobile"></use></svg
           ></a>
+        </li>
+        <li class="header-list__item">
+          <button class="cart-btn">
+            Корзина
+            <svg width="24" height="24" class="">
+              <use href="./images/symbol-defs.svg#cart-icon"></use>
+            </svg>
+          </button>
         </li>
       </ul>
     </div>

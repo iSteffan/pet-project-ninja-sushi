@@ -19,14 +19,93 @@
 }
 
 .header-list {
-  list-style: none;
-}
-
-.header-list {
   display: flex;
-  gap: 4px;
+
+  list-style: none;
+
+  @include mobile {
+    gap: 4px;
+  }
+
+  @include desktop {
+    gap: 12px;
+  }
 }
 
 .header-list__link {
   height: 40px;
+}
+
+.ninja-logo__mobile {
+  @include mobile {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.ninja-logo__desktop {
+  @include mobile {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.menu-btn-mobile {
+  @include mobile {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.nav-list {
+  list-style: none;
+  @include mobile {
+    display: none;
+  }
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+}
+
+.nav-list__link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.phone-correction {
+  display: flex;
+  align-items: center;
+}
+
+.cart-btn {
+  padding: 16px 24px;
+  color: $SecondaryFontColor;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: $SectionColor;
+  border-radius: 12px;
+  border: 1px solid $Bordercolor;
+  @include mobile {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
 }
