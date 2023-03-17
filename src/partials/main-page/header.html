@@ -11,14 +11,15 @@
             href="./images/symbol-defs.svg#ninja-sushi-logo-desktop"
           ></use></svg
       ></a>
-      <form class="choose-city">
-        <input
-          type="text"
-          name="city"
-          placeholder="Оберіть місто"
-          class="input-city"
-        />
-      </form>
+      <div class="location">
+        <svg class="ukrainian-flag">
+          <use href="./images/symbol-defs.svg#ukraine-flag"></use>
+        </svg>
+        <button type="button" class="location-btn">
+          <span class="location-btn__city">Киев</span
+          ><span class="location-btn__language">RU</span>
+        </button>
+      </div>
       <nav>
         <ul class="nav-list">
           <li class="nav-list__item">
@@ -62,14 +63,14 @@
           ></a>
         </li>
         <li class="header-list__item hide-menu-btn">
-          <button class="menu-btn">
+          <button type="button" class="menu-btn">
             <svg class="header-list__icon">
               <use href="./images/symbol-defs.svg#menu-btn-mobile"></use>
             </svg>
           </button>
         </li>
         <li class="header-list__item">
-          <button class="cart-btn">
+          <button type="button" class="cart-btn">
             Корзина
             <svg class="cart-icon">
               <use href="./images/symbol-defs.svg#cart-icon"></use>

@@ -1,0 +1,44 @@
+// Модальне вікно вибору мови та міста.
+.location-modal-window {
+  position: relative;
+
+  padding: 20px;
+  width: 238px;
+  height: 358px;
+  background-color: $SectionColor;
+  border-radius: 12px;
+}
+
+.choose-language,
+.choose-city {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: $SelectionFontColor;
+}
+
+.location-modal-window__btn {
+  width: 93px;
+  height: 48px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  background-color: $BackgroundColor;
+  border-radius: 12px;
+}
+
+.location-modal-window__close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  border: 0;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.location-modal-window__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
