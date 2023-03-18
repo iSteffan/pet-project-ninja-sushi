@@ -11,6 +11,7 @@ const refs = {
   selectCity: document.querySelector('.location-modal__city'), // Кнопка з вибором міста
   setCity: document.querySelector('.location-btn__city'), // Встановлення міста
   setLanguage: document.querySelector('.location-btn__language'), // Встановлення мови
+  languageBtn: document.querySelector('.location-modal__language-btn.selected'),
 };
 
 // Вставляємо згенеровану розмітку карток суші в DOM
@@ -33,10 +34,24 @@ refs.selectLanguage.addEventListener('click', onChangeLanguageClick);
 refs.selectCity.addEventListener('click', onChangeCityClick);
 
 function onChangeLanguageClick(e) {
-  refs.setLanguage.textContent = e.target.outerText;
+  // language.classList.toggle('selected');
+  const language = e.target;
+  if (language.nodeName === 'BUTTON') {
+    // refs.languageBtn.classList.remove('selected');
+    language.classList.add('selected');
+    refs.setLanguage.textContent = language.outerText;
+  }
+  // language.classList.toggle('selected');
+  // // language.style.backgroundColor = '#ff6633';
+  // refs.setLanguage.textContent = language.outerText;
+  // // console.log(language);
 }
 
 function onChangeCityClick(e) {
+  const city = e.target;
+  if (city.nodeName === 'BUTTON') {
+    refs.setCity.textContent = city.outerText;
+  }
   refs.setCity.textContent = e.target.outerText;
 }
 // refs.loadSushiBtn.addEventListener('click', onLoadMoreSushiClick);

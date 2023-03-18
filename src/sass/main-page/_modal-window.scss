@@ -31,7 +31,8 @@
   margin-top: 24px;
 }
 
-.location-modal-window__btn {
+.location-modal__city-btn,
+.location-modal__language-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +43,7 @@
   font-weight: 500;
   background-color: $BackgroundColor;
   border-radius: 12px;
+  border: 0;
 }
 
 .location-modal-window__close-btn {
@@ -65,4 +67,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.selected {
+  background-color: $AccentColor2;
+  color: $FontColorWhite;
 }
