@@ -20,6 +20,10 @@
 .location {
   display: flex;
   position: relative;
+
+  @include desktop {
+    width: 150px;
+  }
 }
 
 .header-list {
