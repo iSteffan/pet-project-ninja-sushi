@@ -1,6 +1,13 @@
 .section-category {
-  margin-top: 6px;
-  margin-bottom: 8px;
+  @include mobile {
+    margin-top: 6px;
+    margin-bottom: 8px;
+  }
+
+  @include desktop {
+    margin-top: 16px;
+    margin-bottom: 18px;
+  }
 }
 
 .category-list {

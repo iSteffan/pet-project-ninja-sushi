@@ -1,5 +1,5 @@
 // Модальне вікно вибору мови та міста.
-<div class="location-modal-window">
+<div class="location-modal-window is-hidden" data-modal="location">
   <button type="button" class="location-modal-window__close-btn">
     <svg width="16" height="16">
       <use href="./images/symbol-defs.svg#menu-close"></use>
@@ -7,13 +7,13 @@
   </button>
 
   <p class="choose-language">Выберите язык</p>
-  <div class="location-modal-window__wrapper">
+  <div class="location-modal__language">
     <buton type="button" class="location-modal-window__btn">EN</buton>
     <buton type="button" class="location-modal-window__btn">UA</buton>
     <buton type="button" class="location-modal-window__btn">RU</buton>
   </div>
-  <p class="choose-city">Выберите город</p>
-  <div class="location-modal-window__wrapper">
+  <p class="choose-city choose-city--move-down">Выберите город</p>
+  <div class="location-modal__city">
     <buton type="button" class="location-modal-window__btn">Киев</buton>
     <buton type="button" class="location-modal-window__btn">Днепр</buton>
     <buton type="button" class="location-modal-window__btn">Харьков </buton>
