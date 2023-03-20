@@ -143,38 +143,58 @@
 
 .additional-info {
   position: absolute;
-  top: -10px;
-  left: -10px;
+
   display: flex;
   gap: 4px;
+
+  @include mobile {
+    top: -10px;
+    left: -10px;
+
+    gap: 4px;
+  }
+
+  @include desktop {
+    top: 20px;
+    left: 20px;
+
+    gap: 6px;
+  }
 }
 
 .additional-info__hit {
-  padding: 2px 8px;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1.42;
   color: $AccentColor2;
   background-color: $BGCinfo2;
   border-radius: 6px;
 
+  @include mobile {
+    padding: 2px 8px;
+    font-size: 14px;
+    line-height: 1.42;
+  }
+
   @include desktop {
+    padding: 6px 10px;
     font-size: 18px;
     line-height: 1.1;
   }
 }
 
 .additional-info__new {
-  padding: 2px 8px;
-
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1.42;
   color: $AccentColor;
   background-color: $BGCinfo1;
   border-radius: 6px;
 
+  @include mobile {
+    padding: 2px 8px;
+    font-size: 14px;
+    line-height: 1.42;
+  }
+
   @include desktop {
+    padding: 6px 10px;
     font-size: 18px;
     line-height: 1.1;
   }
