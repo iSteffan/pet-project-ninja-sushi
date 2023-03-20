@@ -12,9 +12,11 @@ export const sushiMarkup = sushi
                   </div>
                 </div>
                 <div class="product-info">
-                  <h2 class="product-name">${item.name}</h2>
-                  <p class="product-weight">Вага: ${item.weight} г</p>
-                  <p class="product-description">${item.description}</p>
+                  <div>
+                    <h2 class="product-name">${item.name}</h2>
+                    <p class="product-weight">Вага: ${item.weight} г</p>
+                    <p class="product-description">${item.description}</p>
+                  </div>
                   <div class="price-wrapper">
                     <p class="product-price">${item.price} грн</p>
                     <button type="button" class="product-favourite-btn">
@@ -39,9 +41,11 @@ export const sushiMarkup = sushi
                   </div>
                 </div>
                 <div class="product-info">
-                  <h2 class="product-name">${item.name}</h2>
-                  <p class="product-weight">Вага: ${item.weight} г</p>
-                  <p class="product-description">${item.description}</p>
+                  <div>
+                    <h2 class="product-name">${item.name}</h2>
+                    <p class="product-weight">Вага: ${item.weight} г</p>
+                    <p class="product-description">${item.description}</p>
+                  </div>
                   <div class="price-wrapper">
                     <p class="product-price">${item.price} грн</p>
                     <button type="button" class="product-favourite-btn">
@@ -66,9 +70,11 @@ export const sushiMarkup = sushi
                   </div>
                 </div>
                 <div class="product-info">
-                  <h2 class="product-name">${item.name}</h2>
-                  <p class="product-weight">Вага: ${item.weight} г</p>
-                  <p class="product-description">${item.description}</p>
+                  <div>
+                    <h2 class="product-name">${item.name}</h2>
+                    <p class="product-weight">Вага: ${item.weight} г</p>
+                    <p class="product-description">${item.description}</p>
+                  </div>
                   <div class="price-wrapper">
                     <p class="product-price">${item.price} грн</p>
                     <button type="button" class="product-favourite-btn">
@@ -94,9 +100,11 @@ export const sushiMarkup = sushi
                   </div>
                 </div>
                 <div class="product-info">
-                  <h2 class="product-name">${item.name}</h2>
-                  <p class="product-weight">Вага: ${item.weight} г</p>
-                  <p class="product-description">${item.description}</p>
+                  <div>
+                    <h2 class="product-name">${item.name}</h2>
+                    <p class="product-weight">Вага: ${item.weight} г</p>
+                    <p class="product-description">${item.description}</p>
+                  </div>
                   <div class="price-wrapper">
                     <p class="product-price">${item.price} грн</p>
                     <button type="button" class="product-favourite-btn">

@@ -1,23 +1,54 @@
 .section-sushi {
-  margin-top: 48px;
+  @include mobile {
+    margin-top: 48px;
+  }
+
+  @include desktop {
+    margin-top: 124px;
+  }
 }
 
 .section-sushi__title {
-  margin-bottom: 24px;
-  text-align: center;
-  font-size: 24px;
-  line-height: 1.25;
+  @media screen and (min-width: 375px) and (max-width: 1575px) {
+    margin-bottom: 24px;
+
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.25;
+  }
+
+  @include desktop {
+    margin-bottom: 32px;
+    font-size: 48px;
+    line-height: 1.33;
+  }
 }
 
 .section-sushi__container {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 }
 
 .sushi-foto {
-  width: 96px;
-  height: 96px;
+  @include mobile {
+    width: 96px;
+    height: 96px;
+  }
+
+  @include desktop {
+    width: 331px;
+    height: 290px;
+  }
 }
 
 .product-card {
@@ -34,11 +65,167 @@
   width: 343px;
   background-color: $SectionColor;
   border-radius: 12px;
+
+  @include desktop {
+    padding: 24px;
+    display: block;
+    width: calc((100% - 60px) / 4);
+    height: 596px;
+  }
 }
 
 // .product-card:nth-child(n + 5) {
 //   display: none;
 // }
+
+.product-name {
+  @include mobile {
+    margin-bottom: 6px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  @include desktop {
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    font-size: 27px;
+    line-height: 1.18;
+  }
+}
+
+.product-weight {
+  color: $AccentColor2;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  @include desktop {
+    font-size: 18px;
+    line-height: 1.44;
+  }
+}
+
+.product-description {
+  margin-top: 6px;
+  margin-bottom: 8px;
+  color: $SecondaryFontColor;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.product-price {
+  margin-right: 30px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+
+  @include desktop {
+    font-size: 40px;
+    line-height: 0.8;
+  }
+}
+
+.price-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.additional-info {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  display: flex;
+  gap: 4px;
+}
+
+.additional-info__hit {
+  padding: 2px 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.42;
+  color: $AccentColor2;
+  background-color: $BGCinfo2;
+  border-radius: 6px;
+
+  @include desktop {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+}
+
+.additional-info__new {
+  padding: 2px 8px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.42;
+  color: $AccentColor;
+  background-color: $BGCinfo1;
+  border-radius: 6px;
+
+  @include desktop {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+}
+
+.product-info {
+  @media screen and (min-width: 375px) and (max-width: 1575px) {
+    width: 211px;
+  }
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+//-----------------------------------------Buttons-----------------------------------------
+.product-favourite-btn {
+  margin-right: 6px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 12px;
+  background-color: $BackgroundColor;
+
+  @include mobile {
+    width: 40px;
+    height: 40px;
+  }
+
+  @include desktop {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.product-add-to-cart-btn {
+  border: 0;
+  border-radius: 12px;
+  background-color: $BackgroundColor;
+
+  @include mobile {
+    width: 56px;
+    height: 40px;
+  }
+
+  @include desktop {
+    width: 76px;
+    height: 48px;
+  }
+}
 
 .load-more-btn-sushi {
   display: block;
@@ -58,91 +245,8 @@
   border-color: transparent;
 }
 
-.product-name {
-  margin-bottom: 6px;
-  font-size: 16px;
-  line-height: 1.5;
-}
+// @include mobile {
+// }
 
-.product-weight {
-  color: $AccentColor2;
-
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-}
-
-.product-description {
-  margin-top: 6px;
-  margin-bottom: 8px;
-  color: $SecondaryFontColor;
-
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.33;
-}
-
-.product-price {
-  margin-right: 30px;
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.25;
-}
-
-.product-favourite-btn {
-  margin-right: 6px;
-  padding: 0;
-
-  width: 40px;
-  height: 40px;
-  border: 0;
-  border-radius: 12px;
-  background-color: $BackgroundColor;
-}
-
-.product-add-to-cart-btn {
-  width: 56px;
-  height: 40px;
-  border: 0;
-  border-radius: 12px;
-  background-color: $BackgroundColor;
-}
-
-.price-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.additional-info {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  display: flex;
-  gap: 4px;
-}
-
-.additional-info__hit {
-  padding: 2px 8px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.42;
-  color: $AccentColor2;
-  background-color: $BGCinfo2;
-  border-radius: 6px;
-}
-
-.additional-info__new {
-  padding: 2px 8px;
-
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.42;
-  color: $AccentColor;
-  background-color: $BGCinfo1;
-  border-radius: 6px;
-}
-
-.product-info {
-  width: 211px;
-}
+// @include desktop {
+// }
