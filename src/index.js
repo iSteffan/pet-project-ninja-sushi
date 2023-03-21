@@ -4,12 +4,12 @@ import {
   selectCity,
   onChangeLanguageClick,
   onChangeCityClick,
-} from './js/select-language-modal';
+} from './js/modal-window-select-location';
 
 const refs = {
   sushiCardContainer: document.querySelector('.section-sushi__container'), // Вставляємо згенеровану розмітку карток суші в DOM
-  loadSushiBtn: document.querySelector('.load-more-btn-sushi'),
-  productCard: document.querySelector('.product-card'),
+  // loadSushiBtn: document.querySelector('.load-more-btn-sushi'),
+  // productCard: document.querySelector('.product-card'),
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
   btnClose: document.querySelector('.location-modal-window__close-btn'), // Закриваємо модалку з вибором мови/міста
   modal: document.querySelector('[data-modal="location"]'), // Модалка з вибором мови/міста
