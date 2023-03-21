@@ -14,8 +14,6 @@ const refs = {
   productCards: document.querySelectorAll('.product-card'),
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
   btnClose: document.querySelector('.location-modal-window__close-btn'), // Закриваємо модалку з вибором мови/міста
-  selectLanguage: document.querySelector('.location-modal__language'), // Кнопка з вибором мови
-  selectCity: document.querySelector('.location-modal__city'), // Кнопка з вибором міста
 };
 
 // Вставляємо згенеровану розмітку карток суші в DOM
