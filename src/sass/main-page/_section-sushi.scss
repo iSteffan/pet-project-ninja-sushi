@@ -74,9 +74,11 @@
   }
 }
 
-// .product-card:nth-child(n + 5) {
-//   display: none;
-// }
+.product-card--hide {
+  @media screen and (min-width: 375px) and (max-width: 1575px) {
+    display: none;
+  }
+}
 
 .product-name {
   @include mobile {
@@ -263,6 +265,10 @@
 
   border-radius: 12px;
   border-color: transparent;
+
+  @include desktop {
+    display: none;
+  }
 }
 
 // @include mobile {

@@ -6,10 +6,12 @@ import {
   onChangeCityClick,
 } from './js/modal-window-select-location';
 
+// import { hideSushiCard } from './js/load-more-sushi';
+
 const refs = {
   sushiCardContainer: document.querySelector('.section-sushi__container'), // Вставляємо згенеровану розмітку карток суші в DOM
-  // loadSushiBtn: document.querySelector('.load-more-btn-sushi'),
-  // productCard: document.querySelector('.product-card'),
+  loadMoreButton: document.querySelector('.load-more-btn-sushi'),
+  productCards: document.querySelectorAll('.product-card'),
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
   btnClose: document.querySelector('.location-modal-window__close-btn'), // Закриваємо модалку з вибором мови/міста
   modal: document.querySelector('[data-modal="location"]'), // Модалка з вибором мови/міста
@@ -22,7 +24,7 @@ const refs = {
 // Вставляємо згенеровану розмітку карток суші в DOM
 refs.sushiCardContainer.insertAdjacentHTML('afterbegin', sushiMarkup);
 
-// Модальне вікно з вибором міста та мови
+// Відкриття/закриття модального вікна з вибором міста та мови
 refs.btnOpen.addEventListener('click', openModalLocation);
 refs.btnClose.addEventListener('click', closeModalLocation);
 
@@ -33,18 +35,30 @@ function closeModalLocation() {
   refs.modal.classList.add('is-hidden');
 }
 
-//  Змінюємо місто і мову
+//  Змінюємо місто і мову у хедері при натисканні на кнопки у модальному вікні
 refs.selectLanguage.addEventListener('click', onChangeLanguageClick);
 refs.selectCity.addEventListener('click', onChangeCityClick);
 
-//
+//Змінюємо фон вибраної кнопки у модальному вікні
 selectLanguage();
 selectCity();
-// refs.loadSushiBtn.addEventListener('click', onLoadMoreSushiClick);
 
-// function onLoadMoreSushiClick(e) {
-//   // const productCard = document.querySelector('.additional-info__new');
-//   // // productCard.style.display = block;
-//   // productCard.style.backgroundColor = 'teal';
-//   console.log(productCard);
-// }
+const loadMoreButton = document.querySelector('.load-more-btn-sushi');
+const productCards = document.querySelectorAll('.product-card');
+
+// За замовчуванням приховуємо останні чотири картки товару
+function hideSushiCard() {
+  for (let i = productCards.length - 1; i > productCards.length - 5; i--) {
+    productCards[i].classList.add('product-card--hide');
+  }
+}
+hideSushiCard();
+
+loadMoreButton.addEventListener('click', loadMoreSushiClick);
+
+function loadMoreSushiClick() {
+  for (let i = productCards.length - 1; i > productCards.length - 5; i--) {
+    productCards[i].classList.remove('product-card--hide');
+  }
+  loadMoreButton.style.display = 'none';
+}
