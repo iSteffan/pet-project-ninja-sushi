@@ -1,10 +1,9 @@
 import { sushiMarkup } from './js/generate-sushi-cards';
 import {
-  onChangeLanguageClick,
-  onChangeCityClick,
   openModalLocation,
   closeModalLocation,
 } from './js/modal-window-select-location';
+import { checkMeditationTime } from './js/page-load-event';
 
 // import { hideSushiCard } from './js/load-more-sushi';
 
@@ -14,6 +13,8 @@ const refs = {
   productCards: document.querySelectorAll('.product-card'),
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
   btnClose: document.querySelector('.location-modal-window__close-btn'), // Закриваємо модалку з вибором мови/міста
+  meditationBtnClose: document.querySelector('.meditation__close-btn'), // Закриваємо модалку з медитацією
+  meditationModal: document.querySelector('[data-modal="meditation"]'), // Закриваємо модалку з медитацією
 };
 
 // Вставляємо згенеровану розмітку карток суші в DOM
@@ -45,4 +46,6 @@ function loadMoreSushiClick() {
 
 document.addEventListener('DOMContentLoaded', firstStartHandle);
 
-function firstStartHandle() {}
+function firstStartHandle() {
+  checkMeditationTime();
+}
