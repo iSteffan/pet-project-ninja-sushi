@@ -67,7 +67,8 @@
   gap: 12px;
 }
 
-.selected {
+.location-modal__language-btn.selected,
+.location-modal__city-btn.selected {
   background-color: $AccentColor2;
   color: $FontColorWhite;
 }
