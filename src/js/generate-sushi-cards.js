@@ -1,6 +1,10 @@
 import { sushi } from './sushi-object';
 
-export const sushiMarkup = sushi
+const refs = {
+  sushiCardContainer: document.querySelector('.section-sushi__container'),
+};
+
+const sushiMarkup = sushi
   .map(item => {
     if (item.hit === '' && item.new === '') {
       return `<div class="product-card">
@@ -120,3 +124,7 @@ export const sushiMarkup = sushi
               </div>`;
   })
   .join('');
+
+export function addDomSushiMarkup() {
+  refs.sushiCardContainer.insertAdjacentHTML('afterbegin', sushiMarkup);
+}

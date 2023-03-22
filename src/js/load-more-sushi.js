@@ -1,26 +1,21 @@
-// const refs = {
-//   loadMoreButton: document.querySelector('.load-more-btn-sushi'),
-//   productCards: document.querySelectorAll('.product-card'),
-// };
-// const loadMoreButton = document.querySelector('.load-more-btn-sushi');
-// const productCards = document.querySelectorAll('.product-card');
+export function loadMoreSushi() {
+  const loadMoreBtn = document.querySelector('.load-more-btn-sushi');
 
-// За замовчуванням приховуємо останні чотири картки товару
-// export function hideSushiCard() {
-//   for (let i = productCards.length - 1; i > productCards.length - 5; i--) {
-//     productCards[i].classList.add('product-card--hide');
-//   }
-// }
+  // Отримуємо посилання на останні 4 елементи з класом "product-card"
+  const productCards = document.querySelectorAll(
+    '.product-card:nth-last-child(-n+4)'
+  );
 
-// Обробляємо натискання на кнопку "load-more-btn-sushi"
-// loadMoreButton.addEventListener('click', loadMoreSushiClick);
+  // Приховуємо останні 4 елементи
+  productCards.forEach(card => {
+    card.classList.add('product-card--hide');
+  });
 
-// export function loadMoreSushiClick() {
-//   for (
-//     let i = refs.productCards.length - 1;
-//     i > refs.productCards.length - 5;
-//     i--
-//   ) {
-//     refs.productCards[i].classList.remove('product-card--hide');
-//   }
-// }
+  // Додаємо обробник події на кнопку "load more"
+  loadMoreBtn.addEventListener('click', function () {
+    // Показуємо останні 4 елементи
+    productCards.forEach(card => {
+      card.classList.remove('product-card--hide');
+    });
+  });
+}

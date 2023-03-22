@@ -1,48 +1,25 @@
-import { sushiMarkup } from './js/generate-sushi-cards';
+import { addDomSushiMarkup } from './js/generate-sushi-cards';
 import {
   openModalLocation,
   closeModalLocation,
 } from './js/modal-window-select-location';
 import { checkMeditationTime } from './js/page-load-event';
-
-// import { hideSushiCard } from './js/load-more-sushi';
+import { loadMoreSushi } from './js/load-more-sushi';
 
 const refs = {
-  sushiCardContainer: document.querySelector('.section-sushi__container'), // Вставляємо згенеровану розмітку карток суші в DOM
-  loadMoreButton: document.querySelector('.load-more-btn-sushi'),
-  productCards: document.querySelectorAll('.product-card'),
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
   btnClose: document.querySelector('.location-modal-window__close-btn'), // Закриваємо модалку з вибором мови/міста
-  meditationBtnClose: document.querySelector('.meditation__close-btn'), // Закриваємо модалку з медитацією
-  meditationModal: document.querySelector('[data-modal="meditation"]'), // Закриваємо модалку з медитацією
 };
 
 // Вставляємо згенеровану розмітку карток суші в DOM
-refs.sushiCardContainer.insertAdjacentHTML('afterbegin', sushiMarkup);
+addDomSushiMarkup();
 
 // Відкриття/закриття модального вікна з вибором міста та мови
 refs.btnOpen.addEventListener('click', openModalLocation);
 refs.btnClose.addEventListener('click', closeModalLocation);
 
-const loadMoreButton = document.querySelector('.load-more-btn-sushi');
-const productCards = document.querySelectorAll('.product-card');
-
-// За замовчуванням приховуємо останні чотири картки товару
-function hideSushiCard() {
-  for (let i = productCards.length - 1; i > productCards.length - 5; i--) {
-    productCards[i].classList.add('product-card--hide');
-  }
-}
-hideSushiCard();
-
-loadMoreButton.addEventListener('click', loadMoreSushiClick);
-
-function loadMoreSushiClick() {
-  for (let i = productCards.length - 1; i > productCards.length - 5; i--) {
-    productCards[i].classList.remove('product-card--hide');
-  }
-  loadMoreButton.style.display = 'none';
-}
+// Для мобільної версії: показуємо решту карток з суші по кліку на кнопку load more
+loadMoreSushi();
 
 document.addEventListener('DOMContentLoaded', firstStartHandle);
 
