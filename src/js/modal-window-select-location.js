@@ -1,4 +1,5 @@
 const refs = {
+  btnClose: document.querySelector('.location-modal-window__close-btn'), // Закриваємо модалку з вибором мови/міста
   modal: document.querySelector('[data-modal="location"]'), // Модалка з вибором мови/міста
   setCity: document.querySelector('.location-btn__city'), // Встановлення міста
   setLanguage: document.querySelector('.location-btn__language'), // Встановлення мови
@@ -41,15 +42,19 @@ function onChangeCityClick(e) {
 }
 
 export function openModalLocation() {
+  refs.modal.classList.remove('is-hidden');
+
+  // Вішаємо слухача на кнопку закриття вікна
+  refs.btnClose.addEventListener('click', closeModalLocation);
+
   //  Змінюємо місто і мову у хедері при натисканні на кнопки у модальному вікні
   refs.selectLanguage.addEventListener('click', onChangeLanguageClick);
   refs.selectCity.addEventListener('click', onChangeCityClick);
 
   selectLanguage(); //Змінюємо фон вибраної кнопки мови у модальному вікні
   selectCity(); //Змінюємо фон вибраної кнопки міста у модальному вікні
-  refs.modal.classList.remove('is-hidden');
 }
 
-export function closeModalLocation() {
+function closeModalLocation() {
   refs.modal.classList.add('is-hidden');
 }

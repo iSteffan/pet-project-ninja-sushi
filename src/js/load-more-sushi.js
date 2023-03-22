@@ -1,7 +1,7 @@
 export function loadMoreSushi() {
   const loadMoreBtn = document.querySelector('.load-more-btn-sushi');
 
-  // Отримуємо посилання на останні 4 елементи з класом "product-card"
+  // Отримуємо посилання на останні 4 елементи з класом product-card
   const productCards = document.querySelectorAll(
     '.product-card:nth-last-child(-n+4)'
   );
@@ -11,7 +11,7 @@ export function loadMoreSushi() {
     card.classList.add('product-card--hide');
   });
 
-  // Додаємо обробник події на кнопку "load more"
+  // Додаємо обробник події на кнопку load more
   loadMoreBtn.addEventListener('click', function () {
     // Показуємо останні 4 елементи
     productCards.forEach(card => {
