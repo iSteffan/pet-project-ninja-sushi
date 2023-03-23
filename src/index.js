@@ -5,7 +5,7 @@ import { loadMoreSushi } from './js/load-more-sushi';
 
 const refs = {
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
-  formSushiFilter: document.getElementById('filter-sushi'),
+  formSushiFilter: document.getElementById('sort-sushi'),
 };
 
 // Події при завантаженні сторінки

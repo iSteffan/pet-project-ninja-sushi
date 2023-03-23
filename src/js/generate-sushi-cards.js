@@ -2,7 +2,7 @@ import { sushi } from './sushi-object';
 
 const refs = {
   sushiCardContainer: document.querySelector('.section-sushi__container'),
-  formSushiFilter: document.getElementById('filter-sushi'),
+  formSushiSort: document.getElementById('sort-sushi'),
   loadMoreBtn: document.querySelector('.load-more-btn-sushi'),
 };
 
@@ -49,50 +49,50 @@ function createSushiMarkupArr(markupArr) {
   return markup;
 }
 
-// ----------------------------------------------Filter----------------------------------------------
+// ----------------------------------------------Sort----------------------------------------------
 
 export function selectHandle() {
   refs.loadMoreBtn.style.display = 'none';
-  if (refs.formSushiFilter.value === 'name') {
-    sushiFilterByName();
-  } else if (refs.formSushiFilter.value === 'weight') {
-    sushiFilterByWeight();
-  } else if (refs.formSushiFilter.value === 'priceUp') {
-    sushiFilterByPriceUp();
-  } else if (refs.formSushiFilter.value === 'priceDown') {
-    sushiFilterByPriceDown();
+  if (refs.formSushiSort.value === 'name') {
+    sushiSortByName();
+  } else if (refs.formSushiSort.value === 'weight') {
+    sushiSortByWeight();
+  } else if (refs.formSushiSort.value === 'priceUp') {
+    sushiSortByPriceUp();
+  } else if (refs.formSushiSort.value === 'priceDown') {
+    sushiSortByPriceDown();
   }
 }
 
-function sushiFilterByName() {
+function sushiSortByName() {
   const sushiByName = sushi.sort((a, b) => a.name.localeCompare(b.name));
   const markup = createSushiMarkupArr(sushiByName);
 
-  addDomSushiMarkupByFilter(markup);
+  addDomSushiMarkupSort(markup);
 }
 
-function sushiFilterByWeight() {
+function sushiSortByWeight() {
   const sushiByWeight = sushi.sort((a, b) => a.weight - b.weight);
   const markup = createSushiMarkupArr(sushiByWeight);
 
-  addDomSushiMarkupByFilter(markup);
+  addDomSushiMarkupSort(markup);
 }
 
-function sushiFilterByPriceUp() {
+function sushiSortByPriceUp() {
   const sushiByPriceUp = sushi.sort((a, b) => a.price - b.price);
   const markup = createSushiMarkupArr(sushiByPriceUp);
 
-  addDomSushiMarkupByFilter(markup);
+  addDomSushiMarkupSort(markup);
 }
 
-function sushiFilterByPriceDown() {
+function sushiSortByPriceDown() {
   const sushiByPriceDown = sushi.sort((a, b) => b.price - a.price);
   const markup = createSushiMarkupArr(sushiByPriceDown);
 
-  addDomSushiMarkupByFilter(markup);
+  addDomSushiMarkupSort(markup);
 }
 
-function addDomSushiMarkupByFilter(callback) {
+function addDomSushiMarkupSort(callback) {
   refs.sushiCardContainer.innerHTML = '';
   refs.sushiCardContainer.insertAdjacentHTML('afterbegin', callback);
 }
