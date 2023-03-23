@@ -5,8 +5,13 @@ import { loadMoreSushi } from './js/load-more-sushi';
 
 const refs = {
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
+  formSushiFilter: document.getElementById('filter-sushi'),
 };
 
+refs.formSushiFilter.addEventListener('change', selectHandle);
+function selectHandle() {
+  console.dir(refs.formSushiFilter.value);
+}
 // Вставляємо згенеровану розмітку карток суші в DOM
 addDomSushiMarkup();
 
