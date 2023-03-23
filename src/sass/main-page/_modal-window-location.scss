@@ -1,14 +1,22 @@
 // Модальне вікно вибору мови та міста.
 .location-modal-window {
   position: absolute;
-  top: 85;
-  left: 260;
 
   padding: 20px;
   width: 238px;
   height: 358px;
   background-color: $SectionColor;
   border-radius: 12px;
+
+  @include mobile {
+    top: 60;
+    left: 40;
+  }
+
+  @include desktop {
+    top: 85;
+    left: 260;
+  }
 }
 
 .location-modal-window.is-hidden {

@@ -8,20 +8,21 @@ const refs = {
   formSushiFilter: document.getElementById('filter-sushi'),
 };
 
-// Фільтр суші
-refs.formSushiFilter.addEventListener('change', selectHandle);
+// Події при завантаженні сторінки
+document.addEventListener('DOMContentLoaded', firstStartHandle);
+
+function firstStartHandle() {
+  checkMeditationTime();
+}
 
 // Вставляємо згенеровану розмітку карток суші в DOM
 addDomSushiMarkup();
+
+// Фільтр суші
+refs.formSushiFilter.addEventListener('change', selectHandle);
 
 // Відкриття модального вікна з вибором міста та мови
 refs.btnOpen.addEventListener('click', openModalLocation);
 
 // Для мобільної версії: показуємо решту карток з суші по кліку на кнопку load more
 loadMoreSushi();
-
-document.addEventListener('DOMContentLoaded', firstStartHandle);
-
-function firstStartHandle() {
-  checkMeditationTime();
-}
