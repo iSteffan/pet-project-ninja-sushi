@@ -2,18 +2,25 @@ import { sushi } from './sushi-object';
 
 const refs = {
   sushiCardContainer: document.querySelector('.section-sushi__container'),
+  formSushiFilter: document.getElementById('filter-sushi'),
 };
 
-const sushiMarkup = sushi
-  .map(item => {
-    return `<div class="product-card">
+export function addDomSushiMarkup() {
+  const sushiMarkup = createSushiMarkupArr(sushi);
+  refs.sushiCardContainer.insertAdjacentHTML('afterbegin', sushiMarkup);
+}
+
+function createSushiMarkupArr(markupArr) {
+  const markup = markupArr
+    .map(item => {
+      return `<div class="product-card">
               <div>
                 <a href="">
                   <img src="${item.image}" alt="${item.alt}" class="sushi-foto"/>
                 </a>
                 <div class="additional-info">
                   ${item.hit ? `<p class="additional-info__hit">${item.hit}</p>` : ''}
-                  ${item.new ? `<p class="additional-info__new">${item.new}</p>` : ''}  
+                  ${item.new ? `<p class="additional-info__new">${item.new}</p>` : ''}
                 </div>
               </div>
               <div class="product-info">
@@ -35,9 +42,55 @@ const sushiMarkup = sushi
                 </div>
               </div>
             </div>`;
-  })
-  .join('');
+    })
+    .join('');
 
-export function addDomSushiMarkup() {
-  refs.sushiCardContainer.insertAdjacentHTML('afterbegin', sushiMarkup);
+  return markup;
+}
+
+// ----------------------------------------------Filter----------------------------------------------
+
+export function selectHandle() {
+  if (refs.formSushiFilter.value === 'name') {
+    sushiFilterByName();
+  } else if (refs.formSushiFilter.value === 'weight') {
+    sushiFilterByWeight();
+  } else if (refs.formSushiFilter.value === 'priceUp') {
+    sushiFilterByPriceUp();
+  } else if (refs.formSushiFilter.value === 'priceDown') {
+    sushiFilterByPriceDown();
+  }
+}
+
+function sushiFilterByName() {
+  const sushiByName = sushi.sort((a, b) => a.name.localeCompare(b.name));
+  const markup = createSushiMarkupArr(sushiByName);
+
+  addDomSushiMarkupByFilter(markup);
+}
+
+function sushiFilterByWeight() {
+  const sushiByWeight = sushi.sort((a, b) => a.weight - b.weight);
+  const markup = createSushiMarkupArr(sushiByWeight);
+
+  addDomSushiMarkupByFilter(markup);
+}
+
+function sushiFilterByPriceUp() {
+  const sushiByPriceUp = sushi.sort((a, b) => a.price - b.price);
+  const markup = createSushiMarkupArr(sushiByPriceUp);
+
+  addDomSushiMarkupByFilter(markup);
+}
+
+function sushiFilterByPriceDown() {
+  const sushiByPriceDown = sushi.sort((a, b) => b.price - a.price);
+  const markup = createSushiMarkupArr(sushiByPriceDown);
+
+  addDomSushiMarkupByFilter(markup);
+}
+
+function addDomSushiMarkupByFilter(callback) {
+  refs.sushiCardContainer.innerHTML = '';
+  refs.sushiCardContainer.insertAdjacentHTML('afterbegin', callback);
 }

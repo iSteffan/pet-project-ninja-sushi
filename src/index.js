@@ -1,4 +1,4 @@
-import { addDomSushiMarkup } from './js/generate-sushi-cards';
+import { addDomSushiMarkup, selectHandle } from './js/generate-sushi-cards';
 import { openModalLocation } from './js/modal-window-select-location';
 import { checkMeditationTime } from './js/page-load-event';
 import { loadMoreSushi } from './js/load-more-sushi';
@@ -8,10 +8,9 @@ const refs = {
   formSushiFilter: document.getElementById('filter-sushi'),
 };
 
+// Фільтр суші
 refs.formSushiFilter.addEventListener('change', selectHandle);
-function selectHandle() {
-  console.dir(refs.formSushiFilter.value);
-}
+
 // Вставляємо згенеровану розмітку карток суші в DOM
 addDomSushiMarkup();
 
