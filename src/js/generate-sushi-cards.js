@@ -3,6 +3,7 @@ import { sushi } from './sushi-object';
 const refs = {
   sushiCardContainer: document.querySelector('.section-sushi__container'),
   formSushiFilter: document.getElementById('filter-sushi'),
+  loadMoreBtn: document.querySelector('.load-more-btn-sushi'),
 };
 
 export function addDomSushiMarkup() {
@@ -51,6 +52,7 @@ function createSushiMarkupArr(markupArr) {
 // ----------------------------------------------Filter----------------------------------------------
 
 export function selectHandle() {
+  refs.loadMoreBtn.style.display = 'none';
   if (refs.formSushiFilter.value === 'name') {
     sushiFilterByName();
   } else if (refs.formSushiFilter.value === 'weight') {

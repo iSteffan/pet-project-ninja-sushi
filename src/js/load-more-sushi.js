@@ -2,9 +2,7 @@ export function loadMoreSushi() {
   const loadMoreBtn = document.querySelector('.load-more-btn-sushi');
 
   // Отримуємо посилання на останні 4 елементи з класом product-card
-  const productCards = document.querySelectorAll(
-    '.product-card:nth-last-child(-n+4)'
-  );
+  const productCards = document.querySelectorAll('.product-card:nth-last-child(-n+4)');
 
   // Приховуємо останні 4 елементи
   productCards.forEach(card => {
@@ -17,5 +15,6 @@ export function loadMoreSushi() {
     productCards.forEach(card => {
       card.classList.remove('product-card--hide');
     });
+    loadMoreBtn.style.display = 'none';
   });
 }
