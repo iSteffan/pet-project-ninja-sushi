@@ -2,9 +2,10 @@ import { sushi } from './sushi-object';
 
 const refs = {
   cartContainer: document.querySelector('.cart-items'),
-  increaseAmountBtn: document.querySelector('.increase-amount'),
-  decreaseAmountBtn: document.querySelector('.decrease-amount'),
+  increaseAmountBtn: document.querySelectorAll('.increase-amount'),
+  decreaseAmountBtn: document.querySelectorAll('.decrease-amount'),
   itemAmount: document.querySelectorAll('.item-count'),
+  totalPrice: document.querySelectorAll('.money-to-pay__value'),
 };
 
 let nameArr = [];
@@ -36,8 +37,8 @@ export function addToCartArr(e) {
     const orderSushi = sushi.filter(item => nameArr.includes(item.name));
     localStorage.setItem('order', JSON.stringify(orderSushi));
 
+    //   Рендеримо розмітку корзини коли клікається кнопка + на карті товару
     addDomCartMarkup();
-    console.log(refs.itemAmount);
   }
 }
 
@@ -47,24 +48,54 @@ function addDomCartMarkup() {
   refs.cartContainer.insertAdjacentHTML('afterbegin', addCartMarkup);
 
   // Рахує загальну суму товарів в корзині
-  function totalCount() {
-    const price = document.querySelectorAll('.price-value');
-    let total = 0;
 
-    for (let i = 0; i < price.length; i += 1) {
-      total += Number(price[i].innerText);
-    }
-    return total;
+  // --------------------------------------------test-----------------------------------------------------------------
+  const cartItems = document.querySelectorAll('.cart-item');
+  const decreaseButtons = document.querySelectorAll('.decrease-amount');
+  const increaseButtons = document.querySelectorAll('.increase-amount');
+  const itemCounts = document.querySelectorAll('.item-count');
+  const totalPrice = document.querySelector('.money-to-pay__value');
+
+  // обчислюємо початкову загальну вартість
+  let currentTotalPrice = 0;
+  cartItems.forEach(item => {
+    const price = Number(item.querySelector('.price-value').textContent);
+    const count = Number(item.querySelector('.item-count').textContent);
+    currentTotalPrice += price * count;
+  });
+  totalPrice.textContent = currentTotalPrice;
+
+  // додаємо обробники подій на кнопки збільшення та зменшення кількості товару
+  decreaseButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      let count = Number(itemCounts[index].textContent);
+      if (count > 1) {
+        count--;
+        itemCounts[index].textContent = count;
+        updateTotalPrice();
+      }
+    });
+  });
+
+  increaseButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      let count = Number(itemCounts[index].textContent);
+      count++;
+      itemCounts[index].textContent = count;
+      updateTotalPrice();
+    });
+  });
+
+  function updateTotalPrice() {
+    let newTotalPrice = 0;
+    cartItems.forEach(item => {
+      const price = Number(item.querySelector('.price-value').textContent);
+      const count = Number(item.querySelector('.item-count').textContent);
+      newTotalPrice += price * count;
+    });
+    totalPrice.textContent = newTotalPrice;
   }
-
-  const priceRef = document.querySelector('.money-to-pay__value');
-  priceRef.textContent = totalCount();
-
-  //   refs.increaseAmountBtn.addEventListener('click', () => {
-  //     let btnclick = 0;
-  //     btnclick++;
-  //     refs.itemAmount.textContent = btnclick;
-  //   });
+  // --------------------------------------------test-----------------------------------------------------------------
 }
 
 function addItemToCart() {
