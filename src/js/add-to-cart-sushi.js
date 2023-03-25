@@ -1,5 +1,9 @@
 import { sushi } from './sushi-object';
 
+const refs = {
+  cartContainer: document.querySelector('.cart-items'),
+};
+
 let nameArr = [];
 
 export function addToCartArr(e) {
@@ -30,5 +34,44 @@ export function addToCartArr(e) {
     // console.log(filteredSushi);
 
     localStorage.setItem('order', JSON.stringify(orderSushi));
+
+    // const addCartMarkup = addItemToCart();
+    // console.log(addItemToCart());
   }
 }
+
+// export function addDomCartMarkup() {
+//   const addCartMarkup = addItemToCart();
+//   refs.cartContainer.insertAdjacentHTML('afterbegin', addCartMarkup);
+// }
+
+// function addItemToCart() {
+//   const savedOrder = localStorage.getItem('order');
+//   const parsedOrder = JSON.parse(savedOrder);
+//   console.log(parsedOrder);
+
+//   const cartMarkup = parsedOrder
+//     .map(item => {
+//       return `<div>
+//   <img src="${item.image}" alt="${item.alt}" />
+//   <div>
+//     <h2>${item.name}</h2>
+//     <p>Вага: ${item.weight} г</p>
+//   </div>
+//   <div>
+//     <p>${item.price} грн</p>
+//     <button type="button">-</button>
+//     <p>1</p>
+//     <button type="button">+</button>
+//   </div>
+//   <button type="button">
+//     <svg width="30" height="30">
+//       <use href="./images/symbol-defs.svg#menu-close"></use>
+//     </svg>
+//   </button>
+// </div>`;
+//     })
+//     .join('');
+
+//   return cartMarkup;
+// }

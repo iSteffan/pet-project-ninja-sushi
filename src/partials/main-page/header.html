@@ -3,13 +3,9 @@
     <div class="header-wrapper">
       <a href="./index.html" class=""
         ><svg width="67" height="28" class="ninja-logo__mobile">
-          <use
-            href="./images/symbol-defs.svg#ninja-sushi-logo-mobile"
-          ></use></svg
+          <use href="./images/symbol-defs.svg#ninja-sushi-logo-mobile"></use></svg
         ><svg width="214" height="48" class="ninja-logo__desktop">
-          <use
-            href="./images/symbol-defs.svg#ninja-sushi-logo-desktop"
-          ></use></svg
+          <use href="./images/symbol-defs.svg#ninja-sushi-logo-desktop"></use></svg
       ></a>
       <div class="location">
         <svg class="ukrainian-flag">
@@ -92,19 +88,49 @@
       <div class="location-modal__language">
         <button type="button" class="location-modal__language-btn">EN</button>
         <button type="button" class="location-modal__language-btn">UA</button>
-        <button type="button" class="location-modal__language-btn selected">
-          RU
-        </button>
+        <button type="button" class="location-modal__language-btn selected">RU</button>
       </div>
       <p class="choose-city choose-city--move-down">Выберите город</p>
       <div class="location-modal__city">
-        <button type="button" class="location-modal__city-btn selected">
-          Киев
-        </button>
+        <button type="button" class="location-modal__city-btn selected">Киев</button>
         <button type="button" class="location-modal__city-btn">Днепр</button>
         <button type="button" class="location-modal__city-btn">Харьков</button>
         <button type="button" class="location-modal__city-btn">Одесса</button>
       </div>
     </div>
+
+    <!-- // Модальне вікно корзини. -->
+    <div class="backdrop-cart hide-cart" data-modal="cart">
+      <div class="cart-container">
+        <div class="cart">
+          <h2>Ваше замовлення</h2>
+          <button type="button" class="cart__close-btn">
+            <svg width="50" height="50">
+              <use href="./images/symbol-defs.svg#menu-close"></use>
+            </svg>
+          </button>
+          <div class="cart-items"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
+
+<div>
+  <img src="" alt="" />
+  <div>
+    <h2>name</h2>
+    <p>weight</p>
+  </div>
+  <div>
+    <p>price</p>
+    <button type="button">-</button>
+    <p>1</p>
+    <button type="button">+</button>
+  </div>
+  <button type="button">
+    <svg width="30" height="30">
+      <use href="./images/symbol-defs.svg#menu-close"></use>
+    </svg>
+  </button>
+</div>
