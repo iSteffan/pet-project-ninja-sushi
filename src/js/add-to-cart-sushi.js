@@ -2,6 +2,9 @@ import { sushi } from './sushi-object';
 
 const refs = {
   cartContainer: document.querySelector('.cart-items'),
+  increaseAmountBtn: document.querySelector('.increase-amount'),
+  decreaseAmountBtn: document.querySelector('.decrease-amount'),
+  itemAmount: document.querySelectorAll('.item-count'),
 };
 
 let nameArr = [];
@@ -31,11 +34,10 @@ export function addToCartArr(e) {
     }
 
     const orderSushi = sushi.filter(item => nameArr.includes(item.name));
-    // console.log(filteredSushi);
-
     localStorage.setItem('order', JSON.stringify(orderSushi));
 
     addDomCartMarkup();
+    console.log(refs.itemAmount);
   }
 }
 
@@ -43,12 +45,31 @@ function addDomCartMarkup() {
   refs.cartContainer.innerHTML = '';
   const addCartMarkup = addItemToCart();
   refs.cartContainer.insertAdjacentHTML('afterbegin', addCartMarkup);
+
+  // Рахує загальну суму товарів в корзині
+  function totalCount() {
+    const price = document.querySelectorAll('.price-value');
+    let total = 0;
+
+    for (let i = 0; i < price.length; i += 1) {
+      total += Number(price[i].innerText);
+    }
+    return total;
+  }
+
+  const priceRef = document.querySelector('.money-to-pay__value');
+  priceRef.textContent = totalCount();
+
+  //   refs.increaseAmountBtn.addEventListener('click', () => {
+  //     let btnclick = 0;
+  //     btnclick++;
+  //     refs.itemAmount.textContent = btnclick;
+  //   });
 }
 
 function addItemToCart() {
   const savedOrder = localStorage.getItem('order');
   const parsedOrder = JSON.parse(savedOrder);
-  //   console.log(parsedOrder);
 
   const cartMarkup = parsedOrder
     .map(item => {
@@ -61,7 +82,7 @@ function addItemToCart() {
                     </div>
                 </div>
                 <div class="cart-item__price-wrapper">
-                    <p class="cart-item__price">${item.price} грн</p>
+                    <p class="cart-item__price"><span class="price-value">${item.price}</span> грн</p>
                     <button type="button" class="decrease-amount">
                         <svg width="18" height="18" viewBox="0 0 32 32">
                             <path d="M5.333 16c0-0.736 0.597-1.333 1.333-1.333h18.667c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333h-18.667c-0.736 0-1.333-0.597-1.333-1.333z"></path>
