@@ -3,8 +3,14 @@
 
 const gunkanKrevetkaURL = new URL('../images/sushi/gunkan-krevetka.jpg', import.meta.url);
 const gunkanLososURL = new URL('../images/sushi/gunkan-losos.jpg', import.meta.url);
-const gunkanTunecTrufelURL = new URL('../images/sushi/gunkan-tunec-trufel.jpg', import.meta.url);
-const gunkanTunecSpicyURL = new URL('../images/sushi/gunkan-tunec-spicy.jpg', import.meta.url);
+const gunkanTunecTrufelURL = new URL(
+  '../images/sushi/gunkan-tunec-trufel.jpg',
+  import.meta.url
+);
+const gunkanTunecSpicyURL = new URL(
+  '../images/sushi/gunkan-tunec-spicy.jpg',
+  import.meta.url
+);
 const nigiriVygorURL = new URL('../images/sushi/nigiri-ugor.jpg', import.meta.url);
 const nigiriKrevetkaURL = new URL('../images/sushi/nigiri-krevetka.jpg', import.meta.url);
 const gunkanVygorURL = new URL('../images/sushi/gunkan-ugor.jpg', import.meta.url);
@@ -45,7 +51,8 @@ export const sushi = [
     name: 'Гункан тунець спайсі',
     price: 165,
     weight: 120,
-    description: 'Норі, рис, тунець, соус шрірача, японський майонез, кунжутна олія, цибуля шніт,',
+    description:
+      'Норі, рис, тунець, соус шрірача, японський майонез, кунжутна олія, цибуля шніт,',
     image: gunkanTunecSpicyURL,
     alt: 'Гункан тунець спайсі',
     hit: '',
