@@ -1,3 +1,12 @@
+.cart-title {
+  @include desktop {
+    margin-bottom: 24px;
+
+    font-size: 28px;
+    line-height: 1.28;
+  }
+}
+
 .backdrop-cart {
   @include mobile {
     display: none;
@@ -41,13 +50,13 @@
 }
 
 .cart {
-  padding: 40px;
+  padding: 30px;
   position: absolute;
   top: 95px;
   right: 0;
 
   width: 590px;
-  height: 100%;
+  height: auto;
   background: $SectionColor;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -65,4 +74,148 @@
   right: 20px;
   border: 0;
   background-color: inherit;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  background-color: $BackgroundColor;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 18px;
+  padding-left: 24px;
+}
+
+.cart-item__description {
+  display: flex;
+  gap: 10px;
+}
+
+.cart-item__image {
+  @include mobile {
+    width: 86px;
+    height: 86px;
+  }
+
+  @include desktop {
+    width: 58px;
+    height: 47px;
+  }
+}
+
+.cart-item__name {
+  @include desktop {
+    margin-bottom: 2px;
+
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.cart-item__weight {
+  @include desktop {
+    font-size: 14px;
+    line-height: 1.42;
+    color: $AccentColor2;
+  }
+}
+
+.cart-item__price {
+  @include desktop {
+    margin-right: 16px;
+
+    font-size: 14px;
+    line-height: 1.42;
+    font-weight: 500;
+    color: $MainFontColor;
+  }
+}
+
+.cart-item__price-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.item-count {
+  @include desktop {
+    margin-right: 8px;
+    margin-left: 8px;
+
+    font-size: 14px;
+    line-height: 1.42;
+    font-weight: 500;
+    color: $MainFontColor;
+  }
+}
+
+.total-price {
+  @include desktop {
+    font-size: 14px;
+    line-height: 1.42;
+    font-weight: 500;
+    color: $MainFontColor;
+  }
+}
+
+.money-to-pay {
+  @include desktop {
+    font-size: 21px;
+    line-height: 1.9;
+    font-weight: 500;
+    color: $MainFontColor;
+  }
+}
+
+.cart__summary {
+  display: flex;
+  justify-content: space-between;
+}
+// ------------------------------------------Buttons------------------------------------------
+.delete-from-cart-btn {
+  position: absolute;
+  top: 25px;
+  left: -13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  width: 25px;
+  height: 25px;
+  background-color: $SectionColor;
+  border: 0;
+  border-radius: 8px;
+}
+
+.decrease-amount,
+.increase-amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  width: 32px;
+  height: 32px;
+  background-color: $SectionColor;
+  border: 0;
+  border-radius: 8px;
+}
+
+.create-order-btn {
+  padding: 16px 25px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $FontColorWhite;
+  background-color: $AccentColor;
+  border: 0;
+  border-radius: 12px;
 }

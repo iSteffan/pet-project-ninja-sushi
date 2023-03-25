@@ -19,16 +19,16 @@
       <nav>
         <ul class="nav-list">
           <li class="nav-list__item">
-            <a href="./" class="nav-list__link">Главная</a>
+            <a href="./" class="nav-list__link">Головна</a>
           </li>
           <li class="nav-list__item">
             <a href="./" class="nav-list__link">Доставка</a>
           </li>
           <li class="nav-list__item">
-            <a href="./" class="nav-list__link">О нас</a>
+            <a href="./" class="nav-list__link">Про нас</a>
           </li>
           <li class="nav-list__item">
-            <a href="./" class="nav-list__link">Новости</a>
+            <a href="./" class="nav-list__link">Новини</a>
           </li>
           <li class="nav-list__item">
             <a href="tel:+380976993438" class="nav-list__link phone-correction"
@@ -103,13 +103,20 @@
     <div class="backdrop-cart hide-cart" data-modal="cart">
       <div class="cart-container">
         <div class="cart">
-          <h2>Ваше замовлення</h2>
+          <h2 class="cart-title">Ваше замовлення</h2>
           <button type="button" class="cart__close-btn">
             <svg width="50" height="50">
               <use href="./images/symbol-defs.svg#menu-close"></use>
             </svg>
           </button>
           <div class="cart-items"></div>
+          <div class="cart__summary">
+            <div class="">
+              <p class="total-price">Загальна вартість</p>
+              <p class="money-to-pay">0 грн</p>
+            </div>
+            <button type="button" class="create-order-btn">Оформити замовлення</button>
+          </div>
         </div>
       </div>
     </div>
