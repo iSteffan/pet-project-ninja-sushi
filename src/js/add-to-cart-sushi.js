@@ -8,44 +8,52 @@ const refs = {
   totalPrice: document.querySelectorAll('.money-to-pay__value'),
 };
 
-// const cartItems = document.querySelectorAll('.cart-item');
-
+// Масив імен товарів доданих в корзину
 let nameArr = [];
 
 export function addToCart(e) {
   // Створюємо масив імен товарів доданих в корзину
   const button = e.target.closest('.product-add-to-cart-btn');
-  if (button) {
-    const nameElement = button.closest('.product-card').querySelector('.product-name');
-    const addToCartText = button.closest('.product-card').querySelector('.btn-cart-text');
-    const addToCartIcon = button
-      .closest('.product-card')
-      .querySelector('.add-to-cart-icon');
+  // if (button) {
+  const nameElement = button.closest('.product-card').querySelector('.product-name');
+  const addToCartText = button.closest('.product-card').querySelector('.btn-cart-text');
+  const addToCartIcon = button
+    .closest('.product-card')
+    .querySelector('.add-to-cart-icon');
 
-    const name = nameElement.textContent;
-    const index = nameArr.indexOf(name);
+  const name = nameElement.textContent;
+  const index = nameArr.indexOf(name);
 
-    if (index === -1) {
-      nameArr.push(name);
-      button.style.backgroundColor = '#ccf5d5';
-      addToCartText.style.display = 'block';
-      addToCartIcon.style.display = 'none';
-    } else {
-      nameArr.splice(index, 1);
-      button.style.backgroundColor = '#f5f5f7';
-      addToCartText.style.display = 'none';
-      addToCartIcon.style.display = 'block';
-    }
-
-    // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
-    addItemToStorage(sushi, nameArr);
-
-    //   Рендеримо розмітку корзини коли клікається кнопка "+" на карті товару
-    addDomCartMarkup();
-
-    // Рахує вартість товару в корзині
-    calcTotalPrice();
+  if (index === -1) {
+    nameArr.push(name);
+    button.style.backgroundColor = '#ccf5d5';
+    addToCartText.style.display = 'block';
+    addToCartIcon.style.display = 'none';
+  } else {
+    nameArr.splice(index, 1);
+    button.style.backgroundColor = '#f5f5f7';
+    addToCartText.style.display = 'none';
+    addToCartIcon.style.display = 'block';
   }
+
+  // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
+  addItemToStorage(sushi, nameArr);
+
+  //   Рендеримо розмітку корзини коли клікається кнопка "+" на карті товару
+  addDomCartMarkup();
+
+  // Рахує вартість товару в корзині
+  calcTotalPrice();
+  // }
+  // ------------------------------------------------------------------------------------------------------------------
+  refs.cartContainer.addEventListener('click', e => {
+    const button = e.target.closest('.delete-from-cart-btn');
+    const nameElement = button.closest('.cart-item').querySelector('.cart-item');
+    nameElement.innerHTML = '';
+  });
+
+  // const cartItems = document.querySelectorAll('.cart-item');
+  // ------------------------------------------------------------------------------------------------------------------
 }
 
 // Записуємо обрані товари у сховище

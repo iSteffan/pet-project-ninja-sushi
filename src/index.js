@@ -35,7 +35,7 @@ addDomSushiMarkup();
 // Фільтр суші
 refs.formSushiFilter.addEventListener('change', selectHandle);
 
-// Додаємо суші в масив по натисненні кнопки купити
+// Додавання товару в корзину
 refs.sushiContainer.addEventListener('click', addToCart);
 
 // Відкриття модального вікна з вибором міста та мови
