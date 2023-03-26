@@ -8,9 +8,12 @@ const refs = {
   totalPrice: document.querySelectorAll('.money-to-pay__value'),
 };
 
+// const cartItems = document.querySelectorAll('.cart-item');
+
 let nameArr = [];
 
-export function addToCartArr(e) {
+export function addToCart(e) {
+  // Створюємо масив імен товарів доданих в корзину
   const button = e.target.closest('.product-add-to-cart-btn');
   if (button) {
     const nameElement = button.closest('.product-card').querySelector('.product-name');
@@ -34,22 +37,33 @@ export function addToCartArr(e) {
       addToCartIcon.style.display = 'block';
     }
 
-    const orderSushi = sushi.filter(item => nameArr.includes(item.name));
-    localStorage.setItem('order', JSON.stringify(orderSushi));
+    // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
+    addItemToStorage(sushi, nameArr);
 
-    //   Рендеримо розмітку корзини коли клікається кнопка + на карті товару
+    //   Рендеримо розмітку корзини коли клікається кнопка "+" на карті товару
     addDomCartMarkup();
+
+    // Рахує вартість товару в корзині
+    calcTotalPrice();
   }
 }
 
+// Записуємо обрані товари у сховище
+function addItemToStorage(object, array) {
+  const orderSushi = object.filter(item => array.includes(item.name));
+  localStorage.setItem('order', JSON.stringify(orderSushi));
+}
+
+//   Рендеримо розмітку корзини
 function addDomCartMarkup() {
   refs.cartContainer.innerHTML = '';
   const addCartMarkup = addItemToCart();
   refs.cartContainer.insertAdjacentHTML('afterbegin', addCartMarkup);
+}
 
-  // Рахує загальну суму товарів в корзині
-
-  // --------------------------------------------test-----------------------------------------------------------------
+// Рахує вартість товару в корзині
+function calcTotalPrice() {
+  // Рахуємо загальну суму товарів в корзині
   const cartItems = document.querySelectorAll('.cart-item');
   const decreaseButtons = document.querySelectorAll('.decrease-amount');
   const increaseButtons = document.querySelectorAll('.increase-amount');
@@ -85,19 +99,23 @@ function addDomCartMarkup() {
       updateTotalPrice();
     });
   });
-
-  function updateTotalPrice() {
-    let newTotalPrice = 0;
-    cartItems.forEach(item => {
-      const price = Number(item.querySelector('.price-value').textContent);
-      const count = Number(item.querySelector('.item-count').textContent);
-      newTotalPrice += price * count;
-    });
-    totalPrice.textContent = newTotalPrice;
-  }
-  // --------------------------------------------test-----------------------------------------------------------------
 }
 
+// Оновлюємо загальну вартість при збільшенні кількості одного товару
+function updateTotalPrice() {
+  const cartItems = document.querySelectorAll('.cart-item');
+  const totalPrice = document.querySelector('.money-to-pay__value');
+
+  let newTotalPrice = 0;
+  cartItems.forEach(item => {
+    const price = Number(item.querySelector('.price-value').textContent);
+    const count = Number(item.querySelector('.item-count').textContent);
+    newTotalPrice += price * count;
+  });
+  totalPrice.textContent = newTotalPrice;
+}
+
+// Читаємо дані зі сховища та генеруємо розмітку корзини
 function addItemToCart() {
   const savedOrder = localStorage.getItem('order');
   const parsedOrder = JSON.parse(savedOrder);

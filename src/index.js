@@ -3,7 +3,7 @@ import { openModalLocation } from './js/modal-window-select-location';
 import { checkMeditationTime } from './js/page-load-event';
 import { loadMoreSushi } from './js/load-more-sushi';
 // import { sushi } from './js/sushi-object';
-import { addToCartArr } from './js/add-to-cart-sushi';
+import { addToCart } from './js/add-to-cart-sushi';
 
 const refs = {
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
@@ -36,7 +36,7 @@ addDomSushiMarkup();
 refs.formSushiFilter.addEventListener('change', selectHandle);
 
 // Додаємо суші в масив по натисненні кнопки купити
-refs.sushiContainer.addEventListener('click', addToCartArr);
+refs.sushiContainer.addEventListener('click', addToCart);
 
 // Відкриття модального вікна з вибором міста та мови
 refs.btnOpen.addEventListener('click', openModalLocation);
