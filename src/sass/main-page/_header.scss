@@ -86,6 +86,13 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
+
+  @include transition(color);
+
+  &:hover,
+  &:focus {
+    color: $AccentColor2;
+  }
 }
 
 .phone-correction {
@@ -111,6 +118,14 @@
   background-color: $SectionColor;
   border-radius: 12px;
   border: 1px solid $Bordercolor;
+
+  @include double-transition(background-color, color);
+
+  &:hover,
+  &:focus {
+    background-color: $AccentColor2;
+    color: $FontColorWhite;
+  }
 }
 
 .hide-cart-btn {
@@ -148,6 +163,7 @@
 .location-btn {
   display: flex;
   align-items: flex-end;
+
   font-weight: 500;
 
   background-color: inherit;
@@ -161,6 +177,13 @@
   @include desktop {
     font-size: 16px;
     line-height: 1.5;
+  }
+
+  @include transition(color);
+
+  &:hover,
+  &:focus {
+    color: $AccentColor2;
   }
 }
 
@@ -190,6 +213,7 @@
 }
 
 .cart-icon {
+  fill: #686870;
   @include mobile {
     display: none;
   }
@@ -198,6 +222,13 @@
     display: block;
     width: 24px;
     height: 24px;
+  }
+
+  @include transition(fill);
+
+  .cart-btn:hover &,
+  .cart-btn:focus & {
+    fill: #ffffff;
   }
 }
 
