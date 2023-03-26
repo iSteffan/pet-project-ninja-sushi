@@ -45,17 +45,12 @@ export function addToCart(e) {
   // Рахує вартість товару в корзині
   calcTotalPrice();
   // }
-  // ------------------------------------------------------------------------------------------------------------------
-  refs.cartContainer.addEventListener('click', e => {
-    const button = e.target.closest('.delete-from-cart-btn');
-    const nameElement = button.closest('.cart-item').querySelector('.cart-item');
-    nameElement.innerHTML = '';
-  });
 
-  // const cartItems = document.querySelectorAll('.cart-item');
-  // ------------------------------------------------------------------------------------------------------------------
+  // Видаляє товар з корзини / перераховує загальну вартість
+  deleteFromCart();
 }
 
+// ---------------------------------------------------Функції---------------------------------------------------
 // Записуємо обрані товари у сховище
 function addItemToStorage(object, array) {
   const orderSushi = object.filter(item => array.includes(item.name));
@@ -104,6 +99,20 @@ function calcTotalPrice() {
       let count = Number(itemCounts[index].textContent);
       count++;
       itemCounts[index].textContent = count;
+      updateTotalPrice();
+    });
+  });
+}
+
+// Видаляє товар з корзини / перераховує загальну вартість
+function deleteFromCart() {
+  const deleteButtons = document.querySelectorAll('.delete-from-cart-btn');
+
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      const deleteBtn = event.target.closest('.delete-from-cart-btn');
+      const element = deleteBtn.closest('.cart-item');
+      element.remove();
       updateTotalPrice();
     });
   });
