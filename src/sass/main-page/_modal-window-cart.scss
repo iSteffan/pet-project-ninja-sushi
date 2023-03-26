@@ -73,8 +73,28 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  padding: 0;
+
+  width: 50px;
+  height: 50px;
   border: 0;
   background-color: inherit;
+
+  // @include transition(background-color);
+
+  // &:hover,
+  // &:focus {
+  //   background-color: $AccentColor2;
+  // }
+}
+
+.cart__close-icon {
+  @include transition(fill);
+
+  .cart__close-btn:hover &,
+  .cart__close-btn:focus & {
+    fill: $AccentColor2;
+  }
 }
 
 .cart-items {
@@ -197,6 +217,12 @@
   background-color: $SectionColor;
   border: 0;
   border-radius: 8px;
+
+  @include transition(background-color);
+
+  &:hover {
+    background-color: $SelectionFontColor;
+  }
 }
 
 .decrease-amount,
@@ -211,6 +237,12 @@
   background-color: $SectionColor;
   border: 0;
   border-radius: 8px;
+
+  @include transition(background-color);
+
+  &:hover {
+    background-color: $SelectionFontColor;
+  }
 }
 
 .create-order-btn {

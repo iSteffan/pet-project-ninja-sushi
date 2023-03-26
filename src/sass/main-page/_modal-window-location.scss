@@ -50,6 +50,14 @@
   background-color: $BackgroundColor;
   border-radius: 12px;
   border: 0;
+
+  @include double-transition(background-color, color);
+
+  &:hover,
+  &:focus {
+    background-color: $AccentColor2;
+    color: $FontColorWhite;
+  }
 }
 
 .location-modal-window__close-btn {
@@ -66,6 +74,13 @@
   width: 24px;
   height: 24px;
   border-radius: 8px;
+
+  @include transition(background-color);
+
+  &:hover,
+  &:focus {
+    background-color: $AccentColor2;
+  }
 }
 
 .location-modal__city,
@@ -79,4 +94,13 @@
 .location-modal__city-btn.selected {
   background-color: $AccentColor2;
   color: $FontColorWhite;
+}
+
+.location-modal-window__close-btn-icon {
+  @include transition(fill);
+
+  .location-modal-window__close-btn:hover &,
+  .location-modal-window__close-btn:focus & {
+    fill: $FontColorWhite;
+  }
 }

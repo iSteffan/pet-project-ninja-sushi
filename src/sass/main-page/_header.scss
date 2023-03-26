@@ -23,6 +23,7 @@
 
 .location {
   display: flex;
+  align-items: center;
 
   @include desktop {
     width: 150px;
@@ -228,7 +229,7 @@
 
   .cart-btn:hover &,
   .cart-btn:focus & {
-    fill: #ffffff;
+    fill: $FontColorWhite;
   }
 }
 

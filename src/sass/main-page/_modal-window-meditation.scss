@@ -41,18 +41,6 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
-
-  //   @media screen and (min-width: 1576px) {
-  //     width: 528px;
-  //     height: 581px;
-  //   }
-
-  //   transform: translate(-50%, -50%) scale(1) rotatey(360deg);
-
-  //   //   @include transition(transform, 500ms);
-  //   transition-property: transform;
-  //   transition-duration: 500ms;
-  //   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .meditation__close-btn {
@@ -95,4 +83,13 @@
   font-size: 24px;
   line-height: 1.18;
   color: $SecondaryFontColor;
+}
+
+.meditation__close-icon {
+  @include transition(fill);
+
+  &:hover,
+  &:focus {
+    fill: $AccentColor2;
+  }
 }

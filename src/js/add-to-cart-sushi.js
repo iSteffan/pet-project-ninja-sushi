@@ -26,7 +26,7 @@ export function addToCart(e) {
 
   if (index === -1) {
     nameArr.push(name);
-    button.style.backgroundColor = '#ccf5d5';
+    button.style.backgroundColor = '#00cc2d';
     addToCartText.style.display = 'block';
     addToCartIcon.style.display = 'none';
   } else {
@@ -150,12 +150,12 @@ function addItemToCart() {
                 <div class="cart-item__price-wrapper">
                     <p class="cart-item__price"><span class="price-value">${item.price}</span> грн</p>
                     <button type="button" class="decrease-amount">
-                        <svg width="18" height="18" viewBox="0 0 32 32">
+                        <svg width="18" height="18" viewBox="0 0 32 32" class="decrease-amount__icon">
                             <path d="M5.333 16c0-0.736 0.597-1.333 1.333-1.333h18.667c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333h-18.667c-0.736 0-1.333-0.597-1.333-1.333z"></path>
                         </svg>
                     </button>
                     <p class="item-count">1</p>
-                    <button type="button" class="increase-amount">
+                    <button type="button" class="increase-amount" class="increase-amount__icon">
                         <svg width="18" height="18" viewBox="0 0 32 32">
                             <path d="M16 5.333c0.736 0 1.333 0.597 1.333 1.333v18.667c0 0.736-0.597 1.333-1.333 1.333s-1.333-0.597-1.333-1.333v-18.667c0-0.736 0.597-1.333 1.333-1.333z"></path>
                             <path d="M5.333 16c0-0.736 0.597-1.333 1.333-1.333h18.667c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333h-18.667c-0.736 0-1.333-0.597-1.333-1.333z"></path>
