@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', firstStartHandle);
 
 function firstStartHandle() {
   checkMeditationTime();
-  localStorage.removeItem('order');
+  localStorage.removeItem('pre-order');
 
   // Створюємо масив в який будемо заносити імена всіх куплених товарів
   let nameArr = [];
