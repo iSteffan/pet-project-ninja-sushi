@@ -6,10 +6,15 @@ const refs = {
   decreaseAmountBtn: document.querySelectorAll('.decrease-amount'),
   itemAmount: document.querySelectorAll('.item-count'),
   totalPrice: document.querySelectorAll('.money-to-pay__value'),
+  cart: document.querySelector('[data-modal="cart"]'),
+  closeCartBtn: document.querySelector('.cart__close-btn'),
 };
 
 // Масив імен товарів доданих в корзину
 let nameArr = [];
+localStorage.setItem('order', JSON.stringify(nameArr));
+// const nameArray = localStorage.getItem('array');
+// const parsedArray = JSON.parse(nameArray);
 
 export function addToCart(e) {
   // Створюємо масив імен товарів доданих в корзину
@@ -36,19 +41,31 @@ export function addToCart(e) {
       addToCartIcon.style.display = 'block';
     }
 
+    console.log('before', nameArr);
     // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
     addItemToStorage(sushi, nameArr);
-
-    //   Рендеримо розмітку корзини коли клікається кнопка "+" на карті товару
-    addDomCartMarkup();
-
-    // Рахує вартість товару в корзині
-    calcTotalPrice();
-    // }
-
-    // Видаляє товар з корзини / перераховує загальну вартість
-    deleteFromCart();
+    // nameArr = [];
+    localStorage.setItem('array', JSON.stringify(nameArr));
+    console.log('after', nameArr);
   }
+}
+
+export function openCart() {
+  refs.cart.classList.remove('hide-cart');
+
+  refs.closeCartBtn.addEventListener('click', () => {
+    refs.cart.classList.add('hide-cart');
+  });
+
+  //   Рендеримо розмітку корзини
+  addDomCartMarkup();
+
+  // Рахує вартість товару в корзині
+  calcTotalPrice();
+  // }
+
+  // Видаляє товар з корзини / перераховує загальну вартість
+  deleteFromCart();
 }
 
 // ---------------------------------------------------Функції---------------------------------------------------
@@ -61,8 +78,10 @@ function addItemToStorage(object, array) {
 //   Рендеримо розмітку корзини
 function addDomCartMarkup() {
   refs.cartContainer.innerHTML = '';
-  const addCartMarkup = addItemToCart();
-  refs.cartContainer.insertAdjacentHTML('afterbegin', addCartMarkup);
+  if (addItemToCart()) {
+    const addCartMarkup = addItemToCart();
+    refs.cartContainer.insertAdjacentHTML('afterbegin', addCartMarkup);
+  }
 }
 
 // Рахує вартість товару в корзині
@@ -107,14 +126,32 @@ function calcTotalPrice() {
 
 // Видаляє товар з корзини / перераховує загальну вартість
 function deleteFromCart() {
+  // Витягуємо значення зі сховища
+  const savedOrder = localStorage.getItem('order');
+  const parsedOrder = JSON.parse(savedOrder);
+
+  // Слухаємо кнопки
   const deleteButtons = document.querySelectorAll('.delete-from-cart-btn');
 
   deleteButtons.forEach(button => {
     button.addEventListener('click', event => {
       const deleteBtn = event.target.closest('.delete-from-cart-btn');
       const element = deleteBtn.closest('.cart-item');
-      changeBtn(deleteBtn);
+
+      // Знаходимо ім'я елемента на кнопку якого натиснули
+      const nameElement = element.closest('.cart-item').querySelector('.cart-item__name');
+      const name = nameElement.textContent;
+
+      // Видаляємо з масиву зі сховища елемент
+      const orderSushi = parsedOrder.filter(item => item.name !== name);
+      console.log('залишились після видалення', orderSushi);
+      localStorage.setItem('order', JSON.stringify(orderSushi));
+      // changeBtn(deleteBtn);
+
+      // Видаляємо елемент з розмітки
       element.remove();
+
+      // Перераховуємо загальну вартість
       updateTotalPrice();
     });
   });
@@ -163,10 +200,10 @@ function updateTotalPrice() {
 function addItemToCart() {
   const savedOrder = localStorage.getItem('order');
   const parsedOrder = JSON.parse(savedOrder);
-
-  const cartMarkup = parsedOrder
-    .map(item => {
-      return `<div class="cart-item">
+  if (parsedOrder) {
+    const cartMarkup = parsedOrder
+      .map(item => {
+        return `<div class="cart-item">
                 <div class="cart-item__description">
                     <img src="${item.image}" alt="${item.alt}" class="cart-item__image" />
                     <div class="">
@@ -195,8 +232,8 @@ function addItemToCart() {
                     </svg>
                 </button>
             </div>`;
-    })
-    .join('');
-
-  return cartMarkup;
+      })
+      .join('');
+    return cartMarkup;
+  }
 }
