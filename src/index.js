@@ -18,7 +18,11 @@ document.addEventListener('DOMContentLoaded', firstStartHandle);
 
 function firstStartHandle() {
   checkMeditationTime();
-  localStorage.clear();
+  localStorage.removeItem('order');
+
+  // Створюємо масив в який будемо заносити імена всіх куплених товарів
+  let nameArr = [];
+  localStorage.setItem('array', JSON.stringify(nameArr));
 }
 
 // Вставляємо згенеровану розмітку карток суші в DOM

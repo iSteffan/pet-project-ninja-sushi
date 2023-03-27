@@ -10,13 +10,10 @@ const refs = {
   closeCartBtn: document.querySelector('.cart__close-btn'),
 };
 
-// Масив імен товарів доданих в корзину
-let nameArr = [];
-localStorage.setItem('order', JSON.stringify(nameArr));
-// const nameArray = localStorage.getItem('array');
-// const parsedArray = JSON.parse(nameArray);
-
 export function addToCart(e) {
+  const nameArray = localStorage.getItem('array');
+  const parsedNameArray = JSON.parse(nameArray);
+
   // Створюємо масив імен товарів доданих в корзину
   const button = e.target.closest('.product-add-to-cart-btn');
   if (button) {
@@ -27,26 +24,26 @@ export function addToCart(e) {
       .querySelector('.add-to-cart-icon');
 
     const name = nameElement.textContent;
-    const index = nameArr.indexOf(name);
+    const index = parsedNameArray.indexOf(name);
 
     if (index === -1) {
-      nameArr.push(name);
+      parsedNameArray.push(name);
       button.style.backgroundColor = '#00cc2d';
       addToCartText.style.display = 'block';
       addToCartIcon.style.display = 'none';
     } else {
-      nameArr.splice(index, 1);
+      parsedNameArray.splice(index, 1);
       button.style.backgroundColor = '#f5f5f7';
       addToCartText.style.display = 'none';
       addToCartIcon.style.display = 'block';
     }
 
-    console.log('before', nameArr);
+    console.log('before', parsedNameArray);
     // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
-    addItemToStorage(sushi, nameArr);
+    addItemToStorage(sushi, parsedNameArray);
     // nameArr = [];
-    localStorage.setItem('array', JSON.stringify(nameArr));
-    console.log('after', nameArr);
+    localStorage.setItem('array', JSON.stringify(parsedNameArray));
+    console.log('after', parsedNameArray);
   }
 }
 
@@ -126,15 +123,19 @@ function calcTotalPrice() {
 
 // Видаляє товар з корзини / перераховує загальну вартість
 function deleteFromCart() {
-  // Витягуємо значення зі сховища
-  const savedOrder = localStorage.getItem('order');
-  const parsedOrder = JSON.parse(savedOrder);
-
   // Слухаємо кнопки
   const deleteButtons = document.querySelectorAll('.delete-from-cart-btn');
 
   deleteButtons.forEach(button => {
     button.addEventListener('click', event => {
+      // Витягуємо значення зі сховища
+      const savedOrder = localStorage.getItem('order');
+      const parsedOrder = JSON.parse(savedOrder);
+
+      const nameArray = localStorage.getItem('array');
+      const parsedNameArray = JSON.parse(nameArray);
+
+      // Знаходимо на якій кнопці був клік
       const deleteBtn = event.target.closest('.delete-from-cart-btn');
       const element = deleteBtn.closest('.cart-item');
 
@@ -144,9 +145,12 @@ function deleteFromCart() {
 
       // Видаляємо з масиву зі сховища елемент
       const orderSushi = parsedOrder.filter(item => item.name !== name);
-      console.log('залишились після видалення', orderSushi);
+      const orderNameArray = parsedNameArray.filter(item => item !== name);
+
+      // Оновлюємо сховище
       localStorage.setItem('order', JSON.stringify(orderSushi));
-      // changeBtn(deleteBtn);
+      localStorage.setItem('array', JSON.stringify(orderNameArray));
+      changeBtn(deleteBtn);
 
       // Видаляємо елемент з розмітки
       element.remove();
@@ -158,7 +162,6 @@ function deleteFromCart() {
 }
 
 // Видаляючи товар з кошика повертаємо кнопку "додано в кошик в початковий стан"
-// Є баг ---- щоб додати видалений товар знову в корзину, кнопку "+" потрібно натискати два рази
 function changeBtn(element) {
   const nameElement = element.closest('.cart-item').querySelector('.cart-item__name');
 
