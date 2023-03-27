@@ -46,7 +46,7 @@ export function addToCart(e) {
     console.log('after', parsedNameArray);
   }
 }
-
+//
 export function openCart() {
   refs.cart.classList.remove('hide-cart');
 
