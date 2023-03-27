@@ -14,40 +14,41 @@ let nameArr = [];
 export function addToCart(e) {
   // Створюємо масив імен товарів доданих в корзину
   const button = e.target.closest('.product-add-to-cart-btn');
-  // if (button) {
-  const nameElement = button.closest('.product-card').querySelector('.product-name');
-  const addToCartText = button.closest('.product-card').querySelector('.btn-cart-text');
-  const addToCartIcon = button
-    .closest('.product-card')
-    .querySelector('.add-to-cart-icon');
+  if (button) {
+    const nameElement = button.closest('.product-card').querySelector('.product-name');
+    const addToCartText = button.closest('.product-card').querySelector('.btn-cart-text');
+    const addToCartIcon = button
+      .closest('.product-card')
+      .querySelector('.add-to-cart-icon');
 
-  const name = nameElement.textContent;
-  const index = nameArr.indexOf(name);
+    const name = nameElement.textContent;
+    const index = nameArr.indexOf(name);
 
-  if (index === -1) {
-    nameArr.push(name);
-    button.style.backgroundColor = '#00cc2d';
-    addToCartText.style.display = 'block';
-    addToCartIcon.style.display = 'none';
-  } else {
-    nameArr.splice(index, 1);
-    button.style.backgroundColor = '#f5f5f7';
-    addToCartText.style.display = 'none';
-    addToCartIcon.style.display = 'block';
+    if (index === -1) {
+      nameArr.push(name);
+      button.style.backgroundColor = '#00cc2d';
+      addToCartText.style.display = 'block';
+      addToCartIcon.style.display = 'none';
+    } else {
+      nameArr.splice(index, 1);
+      button.style.backgroundColor = '#f5f5f7';
+      addToCartText.style.display = 'none';
+      addToCartIcon.style.display = 'block';
+    }
+
+    // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
+    addItemToStorage(sushi, nameArr);
+
+    //   Рендеримо розмітку корзини коли клікається кнопка "+" на карті товару
+    addDomCartMarkup();
+
+    // Рахує вартість товару в корзині
+    calcTotalPrice();
+    // }
+
+    // Видаляє товар з корзини / перераховує загальну вартість
+    deleteFromCart();
   }
-
-  // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
-  addItemToStorage(sushi, nameArr);
-
-  //   Рендеримо розмітку корзини коли клікається кнопка "+" на карті товару
-  addDomCartMarkup();
-
-  // Рахує вартість товару в корзині
-  calcTotalPrice();
-  // }
-
-  // Видаляє товар з корзини / перераховує загальну вартість
-  deleteFromCart();
 }
 
 // ---------------------------------------------------Функції---------------------------------------------------
@@ -112,9 +113,35 @@ function deleteFromCart() {
     button.addEventListener('click', event => {
       const deleteBtn = event.target.closest('.delete-from-cart-btn');
       const element = deleteBtn.closest('.cart-item');
+      changeBtn(deleteBtn);
       element.remove();
       updateTotalPrice();
     });
+  });
+}
+
+// Видаляючи товар з кошика повертаємо кнопку "додано в кошик в початковий стан"
+// Є баг ---- щоб додати видалений товар знову в корзину, кнопку "+" потрібно натискати два рази
+function changeBtn(element) {
+  const nameElement = element.closest('.cart-item').querySelector('.cart-item__name');
+
+  // отримання всіх елементів з класом "product-card"
+  const productCards = document.querySelectorAll('.product-card');
+
+  // ітерація по всіх елементах
+  productCards.forEach(card => {
+    const productName = card.querySelector('.product-name').textContent;
+
+    // перевірка, чи текстовий вміст співпадає зі шуканим ім'ям
+    if (productName === nameElement.textContent) {
+      const buttonText = card.querySelector('.btn-cart-text');
+      const button = card.querySelector('.product-add-to-cart-btn');
+      const icon = card.querySelector('.add-to-cart-icon');
+
+      buttonText.style.display = 'none';
+      button.style.backgroundColor = '#f5f5f7';
+      icon.style.display = 'block';
+    }
   });
 }
 
