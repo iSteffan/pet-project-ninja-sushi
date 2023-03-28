@@ -114,13 +114,13 @@
 
   @include transition(fill);
 
-  .cart-btn:hover &,
-  .cart-btn:focus & {
+  .menu__cart-btn :hover &,
+  .menu__cart-btn :focus & {
     fill: $FontColorWhite;
   }
 }
 
-.cart-btn {
+.menu__cart-btn {
   @media screen and (min-width: 375px) and (max-width: 1575px) {
     display: flex;
     flex-direction: row-reverse;

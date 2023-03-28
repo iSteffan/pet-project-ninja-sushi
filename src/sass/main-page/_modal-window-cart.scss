@@ -8,10 +8,6 @@
 }
 
 .backdrop-cart {
-  @include mobile {
-    display: none;
-  }
-
   @include desktop {
     display: block;
     position: fixed;
