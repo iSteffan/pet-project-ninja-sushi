@@ -114,8 +114,8 @@
 
   @include transition(fill);
 
-  .menu__cart-btn :hover &,
-  .menu__cart-btn :focus & {
+  .menu__cart-btn:hover &,
+  .menu__cart-btn:focus & {
     fill: $FontColorWhite;
   }
 }
@@ -137,5 +137,13 @@
     color: $SecondaryFontColor;
     background-color: $BackgroundColor;
     border-radius: 12px;
+
+    @include double-transition(background-color, color);
+
+    &:hover,
+    &:focus {
+      color: $FontColorWhite;
+      background-color: $AccentColor2;
+    }
   }
 }

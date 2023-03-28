@@ -98,13 +98,6 @@
     width: 50px;
     height: 50px;
   }
-
-  // @include transition(background-color);
-
-  // &:hover,
-  // &:focus {
-  //   background-color: $AccentColor2;
-  // }
 }
 
 .cart__close-icon {
@@ -192,12 +185,11 @@
 .cart-item__weight {
   color: $AccentColor2;
 
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
-    margin-bottom: 8px;
+  width: 100%;
+  margin-bottom: 8px;
 
-    font-size: 12px;
-    line-height: 1.33;
-  }
+  font-size: 12px;
+  line-height: 1.33;
 
   @include desktop {
     font-size: 14px;
@@ -238,15 +230,27 @@
 }
 
 .total-price {
-  @include desktop {
-    font-size: 14px;
-    line-height: 1.42;
-    font-weight: 500;
-    color: $MainFontColor;
+  font-size: 14px;
+  line-height: 1.42;
+  font-weight: 500;
+  color: $MainFontColor;
+
+  @media screen and (min-width: 375px) and (max-width: 1575px) {
+    text-align: center;
   }
+  // @include desktop {
+  //   font-size: 14px;
+  //   line-height: 1.42;
+  //   font-weight: 500;
+  //   color: $MainFontColor;
+  // }
 }
 
 .money-to-pay {
+  @media screen and (min-width: 375px) and (max-width: 1575px) {
+    text-align: center;
+  }
+
   @include desktop {
     font-size: 21px;
     line-height: 1.9;
@@ -258,6 +262,7 @@
 .cart__summary {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   margin-top: 30px;
 }
@@ -306,11 +311,18 @@
 }
 
 .create-order-btn {
-  padding: 16px 25px;
   font-size: 16px;
   line-height: 1.5;
   color: $FontColorWhite;
   background-color: $AccentColor;
   border: 0;
   border-radius: 12px;
+
+  @include mobile {
+    padding: 16px 20px;
+  }
+
+  @include desktop {
+    padding: 16px 25px;
+  }
 }
