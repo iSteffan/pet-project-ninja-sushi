@@ -159,6 +159,11 @@
   background-color: $BackgroundColor;
   border-radius: 12px;
   border: 1px solid $Bordercolor;
+  &:hover,
+  &:focus {
+    fill: $FontColorWhite;
+    background-color: $AccentColor2;
+  }
 }
 
 .location-btn {

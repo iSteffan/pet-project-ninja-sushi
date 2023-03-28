@@ -7,21 +7,17 @@ body {
 
 .container {
   outline: 1px solid tomato;
-  width: 100%;
 
   margin-right: auto;
   margin-left: auto;
 
   @media screen and (min-width: 375px) and (max-width: 1575px) {
-    max-width: 375px;
+    width: 375px;
     padding-right: 4px;
     padding-left: 4px;
   }
 
   @include desktop {
-    max-width: 1576px;
-
-    // padding-right: 85px;
-    // padding-left: 85px;
+    width: 1576px;
   }
 }
