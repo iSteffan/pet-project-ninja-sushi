@@ -133,19 +133,30 @@
 
 .cart-item {
   position: relative;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
 
-  background-color: $BackgroundColor;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-right: 18px;
   padding-left: 24px;
+
+  background-color: $BackgroundColor;
+  border-radius: 12px;
 }
 
 .cart-item__description {
   display: flex;
   gap: 10px;
+}
+
+.cart-item__data {
+  @include mobile {
+  }
+
+  @include desktop {
+    display: flex;
+  }
 }
 
 .cart-item__image {
@@ -189,6 +200,12 @@
 }
 
 .cart-item__price-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.change-amount_wrapper {
   display: flex;
   align-items: center;
 }

@@ -69,7 +69,7 @@ export function openCart() {
 // Записуємо обрані товари у сховище
 function addItemToStorage(object, array) {
   const orderSushi = object.filter(item => array.includes(item.name));
-  localStorage.setItem('order', JSON.stringify(orderSushi));
+  localStorage.setItem('pre-order', JSON.stringify(orderSushi));
 }
 
 //   Рендеримо розмітку корзини
@@ -129,7 +129,7 @@ function deleteFromCart() {
   deleteButtons.forEach(button => {
     button.addEventListener('click', event => {
       // Витягуємо значення зі сховища
-      const savedOrder = localStorage.getItem('order');
+      const savedOrder = localStorage.getItem('pre-order');
       const parsedOrder = JSON.parse(savedOrder);
 
       const nameArray = localStorage.getItem('array');
@@ -148,7 +148,7 @@ function deleteFromCart() {
       const orderNameArray = parsedNameArray.filter(item => item !== name);
 
       // Оновлюємо сховище
-      localStorage.setItem('order', JSON.stringify(orderSushi));
+      localStorage.setItem('pre-order', JSON.stringify(orderSushi));
       localStorage.setItem('array', JSON.stringify(orderNameArray));
       changeBtn(deleteBtn);
 
@@ -201,7 +201,7 @@ function updateTotalPrice() {
 
 // Читаємо дані зі сховища та генеруємо розмітку корзини
 function addItemToCart() {
-  const savedOrder = localStorage.getItem('order');
+  const savedOrder = localStorage.getItem('pre-order');
   const parsedOrder = JSON.parse(savedOrder);
   if (parsedOrder) {
     const cartMarkup = parsedOrder
@@ -209,25 +209,27 @@ function addItemToCart() {
         return `<div class="cart-item">
                 <div class="cart-item__description">
                     <img src="${item.image}" alt="${item.alt}" class="cart-item__image" />
-                    <div class="">
+                    <div class="cart-item__data">
                       <div class="">
                         <h2 class="cart-item__name">${item.name}</h2>
                         <p class="cart-item__weight">Вага: ${item.weight} г</p>
                       </div>
                       <div class="cart-item__price-wrapper">
                         <p class="cart-item__price"><span class="price-value">${item.price}</span> грн</p>
-                        <button type="button" class="decrease-amount">
-                          <svg width="18" height="18" viewBox="0 0 32 32" class="decrease-amount__icon">
-                            <path d="M5.333 16c0-0.736 0.597-1.333 1.333-1.333h18.667c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333h-18.667c-0.736 0-1.333-0.597-1.333-1.333z"></path>
-                          </svg>
-                        </button>
-                        <p class="item-count">1</p>
-                        <button type="button" class="increase-amount" class="increase-amount__icon">
-                        <svg width="18" height="18" viewBox="0 0 32 32">
+                        <div class="change-amount_wrapper">
+                          <button type="button" class="decrease-amount">
+                            <svg width="18" height="18" viewBox="0 0 32 32" class="decrease-amount__icon">
+                              <path d="M5.333 16c0-0.736 0.597-1.333 1.333-1.333h18.667c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333h-18.667c-0.736 0-1.333-0.597-1.333-1.333z"></path>
+                            </svg>
+                          </button>
+                          <p class="item-count">1</p>
+                          <button type="button" class="increase-amount" class="increase-amount__icon">
+                          <svg width="18" height="18" viewBox="0 0 32 32">
                             <path d="M16 5.333c0.736 0 1.333 0.597 1.333 1.333v18.667c0 0.736-0.597 1.333-1.333 1.333s-1.333-0.597-1.333-1.333v-18.667c0-0.736 0.597-1.333 1.333-1.333z"></path>
                             <path d="M5.333 16c0-0.736 0.597-1.333 1.333-1.333h18.667c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333h-18.667c-0.736 0-1.333-0.597-1.333-1.333z"></path>
-                        </svg>
-                        </button>
+                          </svg>
+                          </button>
+                        </div>
                       </div>
                     </div>
                 </div>
