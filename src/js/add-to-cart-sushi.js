@@ -38,12 +38,10 @@ export function addToCart(e) {
       addToCartIcon.style.display = 'block';
     }
 
-    console.log('before', parsedNameArray);
     // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
     addItemToStorage(sushi, parsedNameArray);
-    // nameArr = [];
+
     localStorage.setItem('array', JSON.stringify(parsedNameArray));
-    console.log('after', parsedNameArray);
   }
 }
 
