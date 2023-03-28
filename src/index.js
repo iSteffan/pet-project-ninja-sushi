@@ -11,6 +11,7 @@ const refs = {
   sushiContainer: document.querySelector('.section-sushi__container'),
   openCartBtn: document.querySelector('.cart-btn'),
   cart: document.querySelector('[data-modal="cart"]'),
+  cartMobile: document.querySelector('.menu__cart-btn'),
 };
 
 // Події при завантаженні сторінки
@@ -36,6 +37,7 @@ refs.sushiContainer.addEventListener('click', addToCart);
 
 // Відкриття корзини
 refs.openCartBtn.addEventListener('click', openCart);
+refs.cartMobile.addEventListener('click', openCart);
 
 // Відкриття модального вікна з вибором міста та мови
 refs.btnOpen.addEventListener('click', openModalLocation);

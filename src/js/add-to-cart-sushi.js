@@ -210,24 +210,26 @@ function addItemToCart() {
                 <div class="cart-item__description">
                     <img src="${item.image}" alt="${item.alt}" class="cart-item__image" />
                     <div class="">
+                      <div class="">
                         <h2 class="cart-item__name">${item.name}</h2>
                         <p class="cart-item__weight">Вага: ${item.weight} г</p>
-                    </div>
-                </div>
-                <div class="cart-item__price-wrapper">
-                    <p class="cart-item__price"><span class="price-value">${item.price}</span> грн</p>
-                    <button type="button" class="decrease-amount">
-                        <svg width="18" height="18" viewBox="0 0 32 32" class="decrease-amount__icon">
+                      </div>
+                      <div class="cart-item__price-wrapper">
+                        <p class="cart-item__price"><span class="price-value">${item.price}</span> грн</p>
+                        <button type="button" class="decrease-amount">
+                          <svg width="18" height="18" viewBox="0 0 32 32" class="decrease-amount__icon">
                             <path d="M5.333 16c0-0.736 0.597-1.333 1.333-1.333h18.667c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333h-18.667c-0.736 0-1.333-0.597-1.333-1.333z"></path>
-                        </svg>
-                    </button>
-                    <p class="item-count">1</p>
-                    <button type="button" class="increase-amount" class="increase-amount__icon">
+                          </svg>
+                        </button>
+                        <p class="item-count">1</p>
+                        <button type="button" class="increase-amount" class="increase-amount__icon">
                         <svg width="18" height="18" viewBox="0 0 32 32">
                             <path d="M16 5.333c0.736 0 1.333 0.597 1.333 1.333v18.667c0 0.736-0.597 1.333-1.333 1.333s-1.333-0.597-1.333-1.333v-18.667c0-0.736 0.597-1.333 1.333-1.333z"></path>
                             <path d="M5.333 16c0-0.736 0.597-1.333 1.333-1.333h18.667c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333h-18.667c-0.736 0-1.333-0.597-1.333-1.333z"></path>
                         </svg>
-                    </button>
+                        </button>
+                      </div>
+                    </div>
                 </div>
                 <button type="button" class="delete-from-cart-btn">
                     <svg width="16" height="16" viewBox="0 0 32 32">

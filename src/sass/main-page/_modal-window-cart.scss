@@ -1,7 +1,7 @@
 .cart-title {
-  @include desktop {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 
+  @include desktop {
     font-size: 28px;
     line-height: 1.28;
   }
@@ -47,17 +47,30 @@
 }
 
 .cart {
-  padding: 30px;
   position: absolute;
-  top: 95px;
-  right: 0;
-
-  width: 590px;
-  height: auto;
+  z-index: 2;
   background: $SectionColor;
+  border-radius: 12px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
+
+  @include mobile {
+    top: 4px;
+    right: 4px;
+    padding: 18px;
+
+    width: 367px;
+    height: 100vw;
+  }
+
+  @include desktop {
+    top: 95px;
+    right: 0;
+    padding: 30px;
+
+    width: 590px;
+    height: auto;
+  }
 }
 
 .hide-cart {
@@ -67,14 +80,24 @@
 
 .cart__close-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
   padding: 0;
-
-  width: 50px;
-  height: 50px;
   border: 0;
   background-color: inherit;
+  @include mobile {
+    top: 14px;
+    right: 23px;
+
+    width: 20px;
+    height: 20px;
+  }
+
+  @include desktop {
+    top: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+  }
 
   // @include transition(background-color);
 
@@ -90,6 +113,15 @@
   .cart__close-btn:hover &,
   .cart__close-btn:focus & {
     fill: $AccentColor2;
+  }
+  @include mobile {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include desktop {
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -129,11 +161,11 @@
 }
 
 .cart-item__name {
+  font-size: 16px;
+  line-height: 1.5;
+
   @include desktop {
     margin-bottom: 2px;
-
-    font-size: 16px;
-    line-height: 1.5;
   }
 }
 
