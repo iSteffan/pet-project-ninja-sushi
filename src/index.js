@@ -4,6 +4,7 @@ import { checkMeditationTime } from './js/page-load-event';
 import { loadMoreSushi } from './js/load-more-sushi';
 // import { sushi } from './js/sushi-object';
 import { addToCart, openCart, openCartMobile } from './js/add-to-cart-sushi';
+import { openMobileCart } from './js/mobile-cart';
 
 const bodyScrollLock = require('body-scroll-lock');
 const disableBodyScroll = bodyScrollLock.disableBodyScroll;
@@ -49,21 +50,6 @@ refs.btnOpen.addEventListener('click', openModalLocation);
 // Для мобільної версії: показуємо решту карток з суші по кліку на кнопку load more
 loadMoreSushi();
 
-// const mobileMenu = document.querySelector('.js-menu-container');
-// const openMenuBtn = document.querySelector('.js-open-menu');
-// const closeMenuBtn = document.querySelector('.js-close-menu');
-
-// openMenuBtn.addEventListener('click', () => {
-//   mobileMenu.classList.add('is-open');
-//   const menu = document.querySelector('.mobile-menu__container');
-//   bodyScrollLock.disableBodyScroll(menu);
-
-//   closeMenuBtn.addEventListener('click', () => {
-//     mobileMenu.classList.remove('is-open');
-//     bodyScrollLock.enableBodyScroll(menu);
-//   });
-// });
-
 // Мобільне меню
 (() => {
   const mobileMenu = document.querySelector('.js-menu-container');
@@ -74,7 +60,6 @@ loadMoreSushi();
     const isMenuOpen = openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
-    const body = document.querySelector('body');
     const menu = document.querySelector('.mobile-menu__container');
 
     if (isMenuOpen) {
@@ -97,3 +82,14 @@ loadMoreSushi();
     bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
+
+// ----------------------------------------------------------------------------------------------------
+const openMenuCartBtn = document.querySelector('.js-open-menu-cart');
+const mobileCart = document.querySelector('.js-menu-cart-container');
+openMenuCartBtn.addEventListener('click', openMobileCart);
+
+window.matchMedia('(min-width: 1575px)').addEventListener('change', e => {
+  if (!e.matches) return;
+  mobileCart.classList.remove('is-open');
+  bodyScrollLock.enableBodyScroll(document.body);
+});

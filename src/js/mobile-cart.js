@@ -1,51 +1,37 @@
-import { sushi } from './sushi-object';
-
 const refs = {
-  cartContainer: document.querySelector('.cart-items'),
+  cartMobileContainer: document.querySelector('.cart-mobile-items'),
   increaseAmountBtn: document.querySelectorAll('.increase-amount'),
   decreaseAmountBtn: document.querySelectorAll('.decrease-amount'),
   itemAmount: document.querySelectorAll('.item-count'),
-  totalPrice: document.querySelectorAll('.money-to-pay__value'),
+  totalPrice: document.querySelectorAll('.money-to-pay__value-mobile'),
   cart: document.querySelector('[data-modal="cart"]'),
   closeCartBtn: document.querySelector('.cart__close-btn'),
 };
 
-export function addToCart(e) {
-  const nameArray = localStorage.getItem('array');
-  const parsedNameArray = JSON.parse(nameArray);
+const mobileCart = document.querySelector('.js-menu-cart-container');
+const closeMenuCartBtn = document.querySelector('.js-close-menu-cart');
 
-  // Створюємо масив імен товарів доданих в корзину
-  const button = e.target.closest('.product-add-to-cart-btn');
-  if (button) {
-    const nameElement = button.closest('.product-card').querySelector('.product-name');
-    const addToCartText = button.closest('.product-card').querySelector('.btn-cart-text');
-    const addToCartIcon = button
-      .closest('.product-card')
-      .querySelector('.add-to-cart-icon');
+export function openMobileCart() {
+  mobileCart.classList.add('is-open');
 
-    const name = nameElement.textContent;
-    const index = parsedNameArray.indexOf(name);
+  closeMenuCartBtn.addEventListener('click', () => {
+    mobileCart.classList.remove('is-open');
+  });
 
-    if (index === -1) {
-      parsedNameArray.push(name);
-      button.style.backgroundColor = '#00cc2d';
-      addToCartText.style.display = 'block';
-      addToCartIcon.style.display = 'none';
-    } else {
-      parsedNameArray.splice(index, 1);
-      button.style.backgroundColor = '#f5f5f7';
-      addToCartText.style.display = 'none';
-      addToCartIcon.style.display = 'block';
-    }
+  //   Рендеримо розмітку корзини
+  addDomCartMarkup();
 
-    // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
-    addItemToStorage(sushi, parsedNameArray);
+  // Рахує вартість товару в корзині
+  calcTotalPrice();
+  // }
 
-    localStorage.setItem('array', JSON.stringify(parsedNameArray));
-  }
+  // Видаляє товар з корзини / перераховує загальну вартість
+  deleteFromCart();
 }
 
-export function openCart() {
+export function openCartMobile() {
+  const mobileMenu = document.querySelector('.js-menu-container');
+  mobileMenu.classList.toggle('is-open');
   refs.cart.classList.remove('hide-cart');
 
   refs.closeCartBtn.addEventListener('click', () => {
@@ -64,18 +50,13 @@ export function openCart() {
 }
 
 // ---------------------------------------------------Функції---------------------------------------------------
-// Записуємо обрані товари у сховище
-function addItemToStorage(object, array) {
-  const orderSushi = object.filter(item => array.includes(item.name));
-  localStorage.setItem('pre-order', JSON.stringify(orderSushi));
-}
 
 //   Рендеримо розмітку корзини
 function addDomCartMarkup() {
-  refs.cartContainer.innerHTML = '';
+  refs.cartMobileContainer.innerHTML = '';
   if (addItemToCart()) {
     const addCartMarkup = addItemToCart();
-    refs.cartContainer.insertAdjacentHTML('afterbegin', addCartMarkup);
+    refs.cartMobileContainer.insertAdjacentHTML('afterbegin', addCartMarkup);
   }
 }
 
@@ -86,7 +67,7 @@ function calcTotalPrice() {
   const decreaseButtons = document.querySelectorAll('.decrease-amount');
   const increaseButtons = document.querySelectorAll('.increase-amount');
   const itemCounts = document.querySelectorAll('.item-count');
-  const totalPrice = document.querySelector('.money-to-pay__value');
+  const totalPrice = document.querySelector('.money-to-pay__value-mobile');
 
   // обчислюємо початкову загальну вартість
   let currentTotalPrice = 0;
@@ -186,7 +167,7 @@ function changeBtn(element) {
 // Оновлюємо загальну вартість при збільшенні кількості одного товару
 function updateTotalPrice() {
   const cartItems = document.querySelectorAll('.cart-item');
-  const totalPrice = document.querySelector('.money-to-pay__value');
+  const totalPrice = document.querySelector('.money-to-pay__value-mobile');
 
   let newTotalPrice = 0;
   cartItems.forEach(item => {

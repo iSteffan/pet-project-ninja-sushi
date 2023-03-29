@@ -1,3 +1,4 @@
+<!-- Мобільне меню -->
 <div class="menu-container js-menu-container" id="mobile-menu">
   <div class="mobile-menu__container">
     <h2 class="mobile-menu__title">Меню</h2>
@@ -137,7 +138,7 @@
       </li>
     </ul>
 
-    <button type="button" class="menu__cart-btn js-open-menu-cart" aria-expanded="false">
+    <button type="button" class="menu__cart-btn js-open-menu-cart">
       Кошик
       <svg class="menu__cart-icon">
         <use href="./images/symbol-defs.svg#cart-icon"></use>
@@ -146,21 +147,23 @@
   </div>
 </div>
 
-<!-- <div class="menu-cart-container js-menu-cart-container">
-  <div class="cart">
+<!-- Мобільне меню ---КОШИК -->
+<div class="menu-cart-container js-menu-cart-container">
+  <div class="mobile-menu__container">
     <h2 class="cart-title">Ваше замовлення</h2>
-    <button type="button" class="cart__close-btn js-close-menu-cart">
-      <svg class="cart__close-icon">
+    <button type="button" class="cart__close-btn-mobile js-close-menu-cart">
+      <svg class="cart__close-icon-mobile">
         <use href="./images/symbol-defs.svg#menu-close"></use>
       </svg>
     </button>
-    <div class="cart-items"></div>
+
+    <div class="cart-mobile-items"></div>
     <div class="cart__summary">
       <div class="">
         <p class="total-price">Загальна вартість</p>
-        <p class="money-to-pay"><span class="money-to-pay__value">0</span> грн</p>
+        <p class="money-to-pay"><span class="money-to-pay__value-mobile">0</span> грн</p>
       </div>
       <button type="button" class="create-order-btn">Оформити замовлення</button>
     </div>
   </div>
-</div> -->
+</div>
