@@ -3,12 +3,12 @@ import { openModalLocation } from './js/modal-window-select-location';
 import { checkMeditationTime } from './js/page-load-event';
 import { loadMoreSushi } from './js/load-more-sushi';
 // import { sushi } from './js/sushi-object';
-import { addToCart, openCart, openCartMobile } from './js/add-to-cart-sushi';
+import { addToCart, openCart } from './js/desktop-cart';
 import { openMobileCart } from './js/mobile-cart';
 
 const bodyScrollLock = require('body-scroll-lock');
-const disableBodyScroll = bodyScrollLock.disableBodyScroll;
-const enableBodyScroll = bodyScrollLock.enableBodyScroll;
+// const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+// const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
 const refs = {
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
@@ -42,7 +42,6 @@ refs.sushiContainer.addEventListener('click', addToCart);
 
 // Відкриття корзини
 refs.openCartBtn.addEventListener('click', openCart);
-// refs.cartMobile.addEventListener('click', openCart);
 
 // Відкриття модального вікна з вибором міста та мови
 refs.btnOpen.addEventListener('click', openModalLocation);
@@ -63,11 +62,9 @@ loadMoreSushi();
     const menu = document.querySelector('.mobile-menu__container');
 
     if (isMenuOpen) {
-      // disableBodyScroll(body);
-      enableBodyScroll(menu);
+      bodyScrollLock.enableBodyScroll(menu);
     } else {
-      // enableBodyScroll(body);
-      disableBodyScroll(menu);
+      bodyScrollLock.disableBodyScroll(menu);
     }
   };
 
@@ -83,7 +80,7 @@ loadMoreSushi();
   });
 })();
 
-// ----------------------------------------------------------------------------------------------------
+// Мобільна корзина
 const openMenuCartBtn = document.querySelector('.js-open-menu-cart');
 const mobileCart = document.querySelector('.js-menu-cart-container');
 openMenuCartBtn.addEventListener('click', openMobileCart);

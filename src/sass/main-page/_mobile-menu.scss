@@ -132,6 +132,13 @@
 }
 
 // -------------------------------------------Кошик-------------------------------------------
+
+.cart-mobile-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .menu__cart-icon {
   fill: #686870;
 
