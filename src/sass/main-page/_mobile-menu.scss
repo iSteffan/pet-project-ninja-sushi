@@ -30,6 +30,7 @@
 }
 
 .menu-container {
+  // -webkit-overflow-scrolling: touch;
   position: fixed;
   top: 0;
   left: 0;
@@ -45,13 +46,32 @@
   transition: transform 250ms ease-in-out;
 }
 
-.menu-container .container {
+.mobile-menu__container {
+  // -webkit-overflow-scrolling: touch;
   position: relative;
   padding: 18px;
   width: 367px;
   height: 100%;
+
+  overflow-y: scroll;
   background-color: $SectionColor;
   border-radius: 12px;
+  outline: 1px solid tomato;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (min-width: 375px) and (max-width: 1575px) {
+    width: 375px;
+  }
+
+  @include desktop {
+    width: 1576px;
+  }
+}
+
+.menu-container.is-open {
+  transform: translateX(0);
 }
 
 .menu-container.is-open {

@@ -3,7 +3,11 @@ import { openModalLocation } from './js/modal-window-select-location';
 import { checkMeditationTime } from './js/page-load-event';
 import { loadMoreSushi } from './js/load-more-sushi';
 // import { sushi } from './js/sushi-object';
-import { addToCart, openCart } from './js/add-to-cart-sushi';
+import { addToCart, openCart, openCartMobile } from './js/add-to-cart-sushi';
+
+const bodyScrollLock = require('body-scroll-lock');
+const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
 const refs = {
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
@@ -37,13 +41,28 @@ refs.sushiContainer.addEventListener('click', addToCart);
 
 // Відкриття корзини
 refs.openCartBtn.addEventListener('click', openCart);
-refs.cartMobile.addEventListener('click', openCart);
+// refs.cartMobile.addEventListener('click', openCart);
 
 // Відкриття модального вікна з вибором міста та мови
 refs.btnOpen.addEventListener('click', openModalLocation);
 
 // Для мобільної версії: показуємо решту карток з суші по кліку на кнопку load more
 loadMoreSushi();
+
+// const mobileMenu = document.querySelector('.js-menu-container');
+// const openMenuBtn = document.querySelector('.js-open-menu');
+// const closeMenuBtn = document.querySelector('.js-close-menu');
+
+// openMenuBtn.addEventListener('click', () => {
+//   mobileMenu.classList.add('is-open');
+//   const menu = document.querySelector('.mobile-menu__container');
+//   bodyScrollLock.disableBodyScroll(menu);
+
+//   closeMenuBtn.addEventListener('click', () => {
+//     mobileMenu.classList.remove('is-open');
+//     bodyScrollLock.enableBodyScroll(menu);
+//   });
+// });
 
 // Мобільне меню
 (() => {
@@ -55,9 +74,16 @@ loadMoreSushi();
     const isMenuOpen = openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
+    const body = document.querySelector('body');
+    const menu = document.querySelector('.mobile-menu__container');
 
-    const scrollLockMethod = !isMenuOpen ? 'disableBodyScroll' : 'enableBodyScroll';
-    bodyScrollLock[scrollLockMethod](document.body);
+    if (isMenuOpen) {
+      // disableBodyScroll(body);
+      enableBodyScroll(menu);
+    } else {
+      // enableBodyScroll(body);
+      disableBodyScroll(menu);
+    }
   };
 
   openMenuBtn.addEventListener('click', toggleMenu);

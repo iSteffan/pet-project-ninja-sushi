@@ -63,6 +63,26 @@ export function openCart() {
   deleteFromCart();
 }
 
+export function openCartMobile() {
+  const mobileMenu = document.querySelector('.js-menu-container');
+  mobileMenu.classList.toggle('is-open');
+  refs.cart.classList.remove('hide-cart');
+
+  refs.closeCartBtn.addEventListener('click', () => {
+    refs.cart.classList.add('hide-cart');
+  });
+
+  //   Рендеримо розмітку корзини
+  addDomCartMarkup();
+
+  // Рахує вартість товару в корзині
+  calcTotalPrice();
+  // }
+
+  // Видаляє товар з корзини / перераховує загальну вартість
+  deleteFromCart();
+}
+
 // ---------------------------------------------------Функції---------------------------------------------------
 // Записуємо обрані товари у сховище
 function addItemToStorage(object, array) {
