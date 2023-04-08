@@ -33,6 +33,9 @@
 }
 
 .category-btn {
+  background-color: $SectionColor;
+  border: 0;
+
   @media screen and (min-width: 375px) and (max-width: 1575px) {
     border-radius: 12px;
     padding: 8px;
@@ -41,11 +44,8 @@
   @include desktop {
     width: 91px;
     height: 83px;
+    cursor: pointer;
   }
-
-  background-color: $SectionColor;
-
-  border: 0;
 }
 
 .category-icon {

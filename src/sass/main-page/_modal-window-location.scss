@@ -50,6 +50,7 @@
   background-color: $BackgroundColor;
   border-radius: 12px;
   border: 0;
+  cursor: pointer;
 
   @include double-transition(background-color, color);
 
@@ -74,6 +75,7 @@
   width: 24px;
   height: 24px;
   border-radius: 8px;
+  cursor: pointer;
 
   @include transition(background-color);
 

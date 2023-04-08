@@ -111,6 +111,7 @@
 
     padding: 16px 24px;
     color: $SecondaryFontColor;
+    cursor: pointer;
 
     width: 147px;
     height: 56px;
@@ -138,6 +139,7 @@
 
   @include desktop {
     display: block;
+    cursor: pointer;
   }
 }
 
@@ -185,6 +187,7 @@
   @include desktop {
     font-size: 16px;
     line-height: 1.5;
+    cursor: pointer;
   }
 
   @include transition(color);
