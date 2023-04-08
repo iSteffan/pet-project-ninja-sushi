@@ -5,6 +5,7 @@ import { loadMoreSushi } from './js/load-more-sushi';
 // import { sushi } from './js/sushi-object';
 import { addToCart, openCart } from './js/desktop-cart';
 import { openMobileCart } from './js/mobile-cart';
+import { mobileMenu } from './js/mobile-menu';
 
 const bodyScrollLock = require('body-scroll-lock');
 // const disableBodyScroll = bodyScrollLock.disableBodyScroll;
@@ -17,6 +18,7 @@ const refs = {
   openCartBtn: document.querySelector('.cart-btn'),
   cart: document.querySelector('[data-modal="cart"]'),
   cartMobile: document.querySelector('.menu__cart-btn'),
+  openMenuCartBtn: document.querySelector('.js-open-menu-cart'),
 };
 
 // Події при завантаженні сторінки
@@ -50,43 +52,7 @@ refs.btnOpen.addEventListener('click', openModalLocation);
 loadMoreSushi();
 
 // Мобільне меню
-(() => {
-  const mobileMenu = document.querySelector('.js-menu-container');
-  const openMenuBtn = document.querySelector('.js-open-menu');
-  const closeMenuBtn = document.querySelector('.js-close-menu');
-
-  const toggleMenu = () => {
-    const isMenuOpen = openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-    openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
-    mobileMenu.classList.toggle('is-open');
-    const menu = document.querySelector('.mobile-menu__container');
-
-    if (isMenuOpen) {
-      bodyScrollLock.enableBodyScroll(menu);
-    } else {
-      bodyScrollLock.disableBodyScroll(menu);
-    }
-  };
-
-  openMenuBtn.addEventListener('click', toggleMenu);
-  closeMenuBtn.addEventListener('click', toggleMenu);
-
-  // Close the mobile menu on wider screens if the device orientation changes
-  window.matchMedia('(min-width: 1575px)').addEventListener('change', e => {
-    if (!e.matches) return;
-    mobileMenu.classList.remove('is-open');
-    openMenuBtn.setAttribute('aria-expanded', false);
-    bodyScrollLock.enableBodyScroll(document.body);
-  });
-})();
+mobileMenu();
 
 // Мобільна корзина
-const openMenuCartBtn = document.querySelector('.js-open-menu-cart');
-const mobileCart = document.querySelector('.js-menu-cart-container');
-openMenuCartBtn.addEventListener('click', openMobileCart);
-
-window.matchMedia('(min-width: 1575px)').addEventListener('change', e => {
-  if (!e.matches) return;
-  mobileCart.classList.remove('is-open');
-  bodyScrollLock.enableBodyScroll(document.body);
-});
+refs.openMenuCartBtn.addEventListener('click', openMobileCart);

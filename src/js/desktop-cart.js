@@ -56,11 +56,17 @@ export function openCart() {
   addDomCartMarkup();
 
   // Рахує вартість товару в корзині
-  calcTotalPrice();
+  calcTotalPriceDesktop();
   // }
 
   // Видаляє товар з корзини / перераховує загальну вартість
   deleteFromCart();
+
+  // Ховаємо корзину якщо змінюється viewport
+  window.matchMedia('(max-width: 1575px)').addEventListener('change', e => {
+    if (!e.matches) return;
+    refs.cart.classList.add('hide-cart');
+  });
 }
 
 // ---------------------------------------------------Функції---------------------------------------------------
@@ -80,7 +86,7 @@ function addDomCartMarkup() {
 }
 
 // Рахує вартість товару в корзині
-function calcTotalPrice() {
+function calcTotalPriceDesktop() {
   // Рахуємо загальну суму товарів в корзині
   const cartItems = document.querySelectorAll('.cart-item');
   const decreaseButtons = document.querySelectorAll('.decrease-amount');
@@ -160,7 +166,7 @@ function deleteFromCart() {
 }
 
 // Видаляючи товар з кошика повертаємо кнопку "додано в кошик в початковий стан"
-function changeBtn(element) {
+export function changeBtn(element) {
   const nameElement = element.closest('.cart-item').querySelector('.cart-item__name');
 
   // отримання всіх елементів з класом "product-card"
@@ -198,7 +204,7 @@ function updateTotalPrice() {
 }
 
 // Читаємо дані зі сховища та генеруємо розмітку корзини
-function addItemToCart() {
+export function addItemToCart() {
   const savedOrder = localStorage.getItem('pre-order');
   const parsedOrder = JSON.parse(savedOrder);
   if (parsedOrder) {
