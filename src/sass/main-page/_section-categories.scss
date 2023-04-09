@@ -11,15 +11,20 @@
 }
 
 .category-list {
-  display: flex;
-  list-style: none;
-  overflow: hidden;
+  // display: flex;
+  // list-style: none;
+  // overflow: hidden;
 
   @media screen and (min-width: 375px) and (max-width: 1575px) {
-    gap: 4px;
+    // gap: 4px;
+    display: none;
   }
 
   @include desktop {
+    display: flex;
+    list-style: none;
+    overflow: hidden;
+
     margin-right: auto;
     margin-left: auto;
     padding: 6px 16px;
@@ -78,4 +83,14 @@
   @include desktop {
     height: 83px;
   }
+}
+// -----------------------------------------Splide slider-----------------------------------------
+.splide {
+  @include desktop {
+    display: none;
+  }
+}
+
+.splide__arrows {
+  display: none;
 }
