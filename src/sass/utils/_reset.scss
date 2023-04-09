@@ -10,16 +10,19 @@ h6 {
 
 ul,
 ol {
+  list-style: none;
   margin: 0;
   padding-left: 0;
 }
 
 a {
   display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   // height: auto;
 }
