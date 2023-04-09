@@ -9,13 +9,7 @@ import { mobileMenu } from './js/mobile-menu';
 import '@splidejs/splide/dist/css/splide-core.min.css';
 import Splide from '@splidejs/splide';
 
-new Splide('.splide', {
-  type: 'loop',
-  perPage: 6,
-  speed: (number = 5000),
-}).mount();
-
-const bodyScrollLock = require('body-scroll-lock');
+// const bodyScrollLock = require('body-scroll-lock');
 // const disableBodyScroll = bodyScrollLock.disableBodyScroll;
 // const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
@@ -64,3 +58,10 @@ mobileMenu();
 
 // Мобільна корзина
 refs.openMenuCartBtn.addEventListener('click', openMobileCart);
+
+// Слайдер мобільної секції категорії
+new Splide('.splide', {
+  type: 'loop',
+  perPage: 6,
+  speed: (number = 5000),
+}).mount();

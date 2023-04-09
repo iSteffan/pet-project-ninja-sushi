@@ -16,3 +16,29 @@
   font-weight: 400;
   color: $SecondaryFontColor;
 }
+
+.footer-list__item {
+  font-size: 14px;
+  line-height: 1.42;
+  font-weight: 500;
+}
+
+.footer-list__info {
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 400;
+  color: $SelectionFontColor;
+}
+
+.footer-list__pay-systems {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.copyrights {
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 500;
+  color: $SelectionFontColor;
+}
