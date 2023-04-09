@@ -1,6 +1,7 @@
 // Модальне вікно вибору мови та міста.
 .location-modal-window {
   position: absolute;
+  z-index: 2;
 
   padding: 20px;
   width: 238px;
