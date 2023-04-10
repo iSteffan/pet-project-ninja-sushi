@@ -63,5 +63,5 @@ refs.openMenuCartBtn.addEventListener('click', openMobileCart);
 new Splide('.splide', {
   type: 'loop',
   perPage: 6,
-  speed: (number = 5000),
+  speed: 5000,
 }).mount();
