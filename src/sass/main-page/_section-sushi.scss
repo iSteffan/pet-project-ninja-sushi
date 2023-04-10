@@ -9,7 +9,7 @@
 }
 
 .section-sushi__title {
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     margin-bottom: 24px;
 
     text-align: center;
@@ -75,7 +75,7 @@
 }
 
 .product-card--hide {
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     display: none;
   }
 }
@@ -203,7 +203,7 @@
 }
 
 .product-info {
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     width: 211px;
   }
 
@@ -266,7 +266,7 @@
 .btn-cart-text {
   display: none;
   color: $FontColorWhite;
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     font-weight: 400;
     font-size: 10px;
     line-height: 1.33;

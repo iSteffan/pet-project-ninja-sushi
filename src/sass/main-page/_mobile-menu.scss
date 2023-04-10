@@ -51,7 +51,7 @@
   // -webkit-overflow-scrolling: touch;
   position: relative;
   padding: 18px;
-  width: 367px;
+  // width: 367px;
   height: 100%;
 
   overflow-y: scroll;
@@ -62,8 +62,8 @@
   margin-right: auto;
   margin-left: auto;
 
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
-    width: 375px;
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
+    max-width: 375px;
   }
 
   @include desktop {
@@ -154,7 +154,7 @@
 }
 
 .menu__cart-btn {
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;

@@ -15,7 +15,7 @@
   // list-style: none;
   // overflow: hidden;
 
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     // gap: 4px;
     display: none;
   }
@@ -41,7 +41,7 @@
   background-color: $SectionColor;
   border: 0;
 
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     border-radius: 12px;
     padding: 8px;
   }

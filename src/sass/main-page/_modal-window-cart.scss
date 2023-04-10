@@ -31,7 +31,7 @@
 
   margin-right: auto;
   margin-left: auto;
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     max-width: 375px;
     padding-right: 4px;
     padding-left: 4px;
@@ -236,7 +236,7 @@
   font-weight: 500;
   color: $MainFontColor;
 
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     text-align: center;
   }
   // @include desktop {
@@ -248,7 +248,7 @@
 }
 
 .money-to-pay {
-  @media screen and (min-width: 375px) and (max-width: 1575px) {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
     text-align: center;
   }
 
