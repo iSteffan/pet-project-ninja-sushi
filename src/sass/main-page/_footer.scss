@@ -1,13 +1,15 @@
 .footer {
-  margin-top: 16px;
-}
+  @include mobile {
+    margin-top: 16px;
+  }
 
-.footer-container {
-  @media screen and (min-width: 320px) and (max-width: 1575px) {
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 32px;
-    padding: 24px;
+  @include desktop {
+    margin-top: 126px;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+
+    // padding: 64px 172px;
 
     background-color: $SectionColor;
     border-top-right-radius: 12px;
@@ -15,31 +17,94 @@
   }
 }
 
-.footer__content-wrapper {
-  &:not(:first-child):not(:last-child) {
-    width: calc(100% / 2);
+.footer-container {
+  display: flex;
+
+  background-color: $SectionColor;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
+    flex-wrap: wrap;
+    row-gap: 32px;
+    padding: 24px;
   }
 
-  &:last-child {
-    @media screen and (min-width: 320px) and (max-width: 1575px) {
+  @include desktop {
+    justify-content: space-around;
+
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+.footer__content-wrapper {
+  @media screen and (min-width: 320px) and (max-width: 1575px) {
+    &:not(:first-child):not(:last-child) {
+      width: calc(100% / 2);
+    }
+
+    &:last-child {
       margin-left: auto;
       margin-right: auto;
     }
   }
+
+  @include desktop {
+    &:first-child {
+      width: 246px;
+      margin-right: 120px;
+    }
+
+    &:nth-child(2) {
+      width: 101px;
+      margin-right: 88px;
+    }
+    &:nth-child(3) {
+      width: 168px;
+      margin-right: 88px;
+    }
+    &:nth-child(4) {
+      width: 137px;
+      margin-right: 88px;
+    }
+    &:nth-child(5) {
+      width: 174px;
+    }
+
+    &:last-child {
+      width: 246px;
+      margin-left: 120px;
+    }
+  }
 }
+
 .footer-title {
+  margin-bottom: 12px;
+
   font-size: 12px;
   line-height: 1.33;
   font-weight: 400;
   color: $SecondaryFontColor;
 
-  @media screen and (min-width: 320px) and (max-width: 1575px) {
-    margin-bottom: 12px;
+  @include desktop {
+    font-size: 14px;
+    line-height: 1.42;
+  }
+
+  &--centering {
+    text-align: center;
   }
 }
 
-.footer-title--centering {
-  text-align: center;
+.footer-title--hide {
+  @include mobile {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
+  }
 }
 
 .footer-list--flex {
@@ -52,16 +117,33 @@
   font-size: 14px;
   line-height: 1.42;
   font-weight: 500;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
 .footer-list__info {
-  font-size: 12px;
-  line-height: 1.33;
-  font-weight: 400;
-  color: $SelectionFontColor;
-
-  @media screen and (min-width: 320px) and (max-width: 1575px) {
+  @include mobile {
     margin-top: 12px;
+
+    font-size: 12px;
+    line-height: 1.33;
+    font-weight: 400;
+    color: $SelectionFontColor;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  &--hide {
+    @include desktop {
+      display: none;
+    }
   }
 }
 
@@ -69,6 +151,10 @@
   display: flex;
   gap: 24px;
   align-items: center;
+
+  @include desktop {
+    justify-content: flex-end;
+  }
 }
 
 .copyrights {
@@ -76,6 +162,31 @@
   line-height: 1.33;
   font-weight: 500;
   color: $SelectionFontColor;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 1.42;
+  }
+
+  &__desktop {
+    @include mobile {
+      display: none;
+    }
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  &__mobile {
+    @include mobile {
+      display: block;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
 }
 
 .footer-list__social {
@@ -99,4 +210,119 @@
   line-height: 1.42;
   font-weight: 500;
   color: $FontColorBlue;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.footer__store-list {
+  @include mobile {
+    display: none;
+  }
+
+  @include desktop {
+    display: flex;
+    gap: 14px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+}
+
+.footer__desktop-content {
+  @include mobile {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.privacy-policy {
+  @include mobile {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+    margin-top: 72px;
+
+    font-size: 14px;
+    line-height: 1.42;
+    font-weight: 500;
+  }
+}
+
+.hashtag {
+  font-size: 42px;
+  line-height: 1.52;
+  font-weight: 700;
+}
+
+.follow-instagram {
+  padding: 16px 42px;
+  margin-top: 18px;
+  margin-bottom: 45px;
+
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: $AccentColor;
+  background-color: $BackgroundColor;
+  border-radius: 12px;
+}
+// -------------------------------------------Icons-------------------------------------------
+.footer__ninja-logo {
+  @include mobile {
+    width: 170px;
+    height: 39px;
+  }
+
+  @include desktop {
+    width: 246px;
+    height: 59px;
+  }
+}
+
+.mastercard-icon {
+  @include mobile {
+    width: 37px;
+    height: 30px;
+  }
+
+  @include desktop {
+    width: 21px;
+    height: 16px;
+  }
+}
+
+.visa-icon {
+  @include mobile {
+    width: 53px;
+    height: 17px;
+  }
+
+  @include desktop {
+    width: 28.5px;
+    height: 18px;
+  }
+}
+
+.privatbank-icon {
+  @include mobile {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include desktop {
+    width: 17px;
+    height: 17px;
+  }
+}
+@include mobile {
+}
+
+@include desktop {
 }

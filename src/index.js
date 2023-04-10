@@ -27,7 +27,7 @@ const refs = {
 document.addEventListener('DOMContentLoaded', firstStartHandle);
 
 function firstStartHandle() {
-  checkMeditationTime();
+  // checkMeditationTime();
   localStorage.removeItem('pre-order');
 
   // Створюємо масив в який будемо заносити імена всіх куплених товарів
