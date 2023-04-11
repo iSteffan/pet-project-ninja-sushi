@@ -14,7 +14,7 @@ export function addDomRollMarkup() {
 function createRollMarkupArr(markupArr) {
   const markup = markupArr
     .map(item => {
-      return `<div class="product-card">
+      return `<div class="product-card__roll">
               <div>
                 <a href="">
                   <img src="${item.image}" alt="${item.alt}" class="roll-foto"/>

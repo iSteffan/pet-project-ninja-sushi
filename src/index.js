@@ -3,6 +3,7 @@ import { addDomRollMarkup, selectRollHandle } from './js/generate-roll-cards';
 import { openModalLocation } from './js/modal-window-select-location';
 import { checkMeditationTime } from './js/page-load-event';
 import { loadMoreSushi } from './js/load-more-sushi';
+import { loadMoreRoll } from './js/load-more-roll';
 // import { sushi } from './js/sushi-object';
 import { addToCart, openCart } from './js/desktop-cart';
 import { openMobileCart } from './js/mobile-cart';
@@ -58,6 +59,9 @@ refs.btnOpen.addEventListener('click', openModalLocation);
 
 // Для мобільної версії: показуємо решту карток з суші по кліку на кнопку load more
 loadMoreSushi();
+
+// Для мобільної версії: показуємо решту карток з ролами по кліку на кнопку load more
+loadMoreRoll();
 
 // Мобільне меню
 mobileMenu();
