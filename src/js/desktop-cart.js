@@ -15,6 +15,7 @@ export function addToCart(e) {
   const parsedNameArray = JSON.parse(nameArray);
 
   // Створюємо масив імен товарів доданих в корзину
+  // Перевіряємо чи клікнули по кнопці, тоді зчитуємо ім'я товару в картці
   const button = e.target.closest('.product-add-to-cart-btn');
   if (button) {
     const nameElement = button.closest('.product-card').querySelector('.product-name');
@@ -23,6 +24,8 @@ export function addToCart(e) {
       .closest('.product-card')
       .querySelector('.add-to-cart-icon');
 
+    // Перевіряємо чи таке ім'я товару є в масиві, якщо немає - додаємо / в іншому випадку - видаляємо
+    // Змінюємо вигляд кнопки
     const name = nameElement.textContent;
     const index = parsedNameArray.indexOf(name);
 
@@ -41,10 +44,12 @@ export function addToCart(e) {
     // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
     addItemToStorage(sushi, parsedNameArray);
 
+    // Оновлюємо масив з іменами доданими в кошик для наступного кліку
     localStorage.setItem('array', JSON.stringify(parsedNameArray));
   }
 }
 
+// Функція відкриття десктопної корзини
 export function openCart() {
   refs.cart.classList.remove('hide-cart');
 
@@ -79,6 +84,7 @@ function addItemToStorage(object, array) {
 //   Рендеримо розмітку корзини
 function addDomCartMarkup() {
   refs.cartContainer.innerHTML = '';
+  // Перевіряємо чи розмітка не пуста
   if (addItemToCart()) {
     const addCartMarkup = addItemToCart();
     refs.cartContainer.insertAdjacentHTML('afterbegin', addCartMarkup);
@@ -91,7 +97,7 @@ function calcTotalPriceDesktop() {
   const cartItems = document.querySelectorAll('.cart-item');
   const decreaseButtons = document.querySelectorAll('.decrease-amount');
   const increaseButtons = document.querySelectorAll('.increase-amount');
-  const itemCounts = document.querySelectorAll('.item-count');
+  const itemCounts = document.querySelectorAll('.item-count'); // кількість одиниць товару
   const totalPrice = document.querySelector('.money-to-pay__value');
 
   // обчислюємо початкову загальну вартість
@@ -207,6 +213,7 @@ function updateTotalPrice() {
 export function addItemToCart() {
   const savedOrder = localStorage.getItem('pre-order');
   const parsedOrder = JSON.parse(savedOrder);
+  // Генеруємо розмітку тільки якщо щось є в масиві
   if (parsedOrder) {
     const cartMarkup = parsedOrder
       .map(item => {
