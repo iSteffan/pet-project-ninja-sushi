@@ -82,8 +82,14 @@
 
   @include desktop {
     display: block;
-    width: 788px;
+    width: 100%;
+    height: 100%;
+    // transform: rotate(180deg);
   }
+}
+
+.news__desktop-img--fix {
+  width: 788px;
 }
 
 .news-link {

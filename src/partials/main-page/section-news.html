@@ -10,15 +10,18 @@
         src="/src/images/main-page/mobile-news-image.jpg"
         alt="Новина"
       />
-      <img
-        class="news-image__desktop"
-        srcset="
-          /src/images/main-page/desktop-news-image.jpg    1x,
-          /src/images/main-page/desktop-news-image@2x.jpg 2x
-        "
-        src="/src/images/main-page/mobile-news-image.jpg"
-        alt="Новина"
-      />
+      <div class="news__desktop-img--fix">
+        <img
+          class="news-image__desktop"
+          srcset="
+            /src/images/main-page/desktop-news-image.png    1x,
+            /src/images/main-page/desktop-news-image@2x.png 2x
+          "
+          src="/src/images/main-page/desktop-news-image.png"
+          alt="Новина"
+        />
+      </div>
+
       <div class="news-description">
         <h2 class="news-title">Ninja Sushi в Києві! Наразі тільки на лівому березі</h2>
         <p class="news-comment">Доставку робимо з 10:00 до 19:30</p>
