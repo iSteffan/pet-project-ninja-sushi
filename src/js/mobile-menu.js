@@ -21,7 +21,7 @@ export const mobileMenu = () => {
   refs.openMenuBtn.addEventListener('click', toggleMenu);
   refs.closeMenuBtn.addEventListener('click', toggleMenu);
 
-  // Close the mobile menu on wider screens if the device orientation changes
+  // Ховаємо меню якщо ширина екрану стає рівною десктопній
   window.matchMedia('(min-width: 1575px)').addEventListener('change', e => {
     if (!e.matches) return;
     refs.mobileMenu.classList.remove('is-open');

@@ -271,6 +271,11 @@
     font-size: 10px;
     line-height: 1.33;
   }
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 1.42;
+  }
 }
 
 .load-more-btn-sushi {

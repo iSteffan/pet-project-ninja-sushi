@@ -16,10 +16,8 @@ import Splide from '@splidejs/splide';
 const refs = {
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
   formSushiFilter: document.getElementById('sort-sushi'),
-  sushiContainer: document.querySelector('.section-sushi__container'),
+  sushiContainer: document.querySelector('.section-sushi__container'), // Контейнер куди рендеряться суші
   openCartBtn: document.querySelector('.cart-btn'),
-  cart: document.querySelector('[data-modal="cart"]'),
-  cartMobile: document.querySelector('.menu__cart-btn'),
   openMenuCartBtn: document.querySelector('.js-open-menu-cart'),
 };
 
@@ -27,7 +25,7 @@ const refs = {
 document.addEventListener('DOMContentLoaded', firstStartHandle);
 
 function firstStartHandle() {
-  // checkMeditationTime();
+  checkMeditationTime();
   localStorage.removeItem('pre-order');
 
   // Створюємо масив в який будемо заносити імена всіх куплених товарів
