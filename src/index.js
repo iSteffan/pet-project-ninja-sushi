@@ -1,4 +1,5 @@
 import { addDomSushiMarkup, selectHandle } from './js/generate-sushi-cards';
+import { addDomRollMarkup, selectRollHandle } from './js/generate-roll-cards';
 import { openModalLocation } from './js/modal-window-select-location';
 import { checkMeditationTime } from './js/page-load-event';
 import { loadMoreSushi } from './js/load-more-sushi';
@@ -16,6 +17,7 @@ import Splide from '@splidejs/splide';
 const refs = {
   btnOpen: document.querySelector('.location-btn'), // Відкриваємо модалку з вибором мови/міста
   formSushiFilter: document.getElementById('sort-sushi'),
+  formRollFilter: document.getElementById('sort-roll'),
   sushiContainer: document.querySelector('.section-sushi__container'), // Контейнер куди рендеряться суші
   openCartBtn: document.querySelector('.cart-btn'),
   openMenuCartBtn: document.querySelector('.js-open-menu-cart'),
@@ -36,8 +38,14 @@ function firstStartHandle() {
 // Вставляємо згенеровану розмітку карток суші в DOM
 addDomSushiMarkup();
 
+// Вставляємо згенеровану розмітку карток ролів в DOM
+addDomRollMarkup();
+
 // Фільтр суші
 refs.formSushiFilter.addEventListener('change', selectHandle);
+
+// Фільтр ролів
+refs.formRollFilter.addEventListener('change', selectRollHandle);
 
 // Додавання товару в корзину
 refs.sushiContainer.addEventListener('click', addToCart);

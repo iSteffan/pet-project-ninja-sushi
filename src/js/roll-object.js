@@ -19,7 +19,7 @@ const kratosURL = new URL('../images/roll/kratos.jpg', import.meta.url);
 const lososCheeseURL = new URL('../images/roll/losos-cheese.jpg', import.meta.url);
 const mikasaURL = new URL('../images/roll/mikasa.jpg', import.meta.url);
 
-export const sushi = [
+export const roll = [
   {
     name: 'Філадельфія з лососем',
     price: 410,
