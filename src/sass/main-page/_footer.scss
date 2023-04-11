@@ -181,6 +181,7 @@
   &__mobile {
     @include mobile {
       display: block;
+      margin-top: 16px;
     }
 
     @include desktop {
