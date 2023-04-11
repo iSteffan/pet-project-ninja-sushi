@@ -1,4 +1,5 @@
 import { sushi } from './sushi-object';
+import { roll } from './roll-object';
 
 const refs = {
   cartContainer: document.querySelector('.cart-items'),
@@ -10,7 +11,7 @@ const refs = {
   closeCartBtn: document.querySelector('.cart__close-btn'),
 };
 
-export function addToCart(e) {
+export function addSushiToCart(e) {
   const nameArray = localStorage.getItem('array');
   const parsedNameArray = JSON.parse(nameArray);
 
@@ -42,7 +43,50 @@ export function addToCart(e) {
     }
 
     // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
-    addItemToStorage(sushi, parsedNameArray);
+    addItemToStorage(roll, sushi, parsedNameArray);
+
+    // Оновлюємо масив з іменами доданими в кошик для наступного кліку
+    localStorage.setItem('array', JSON.stringify(parsedNameArray));
+  }
+}
+
+export function addRollToCart(e) {
+  const nameArray = localStorage.getItem('array');
+  const parsedNameArray = JSON.parse(nameArray);
+
+  // Створюємо масив імен товарів доданих в корзину
+  // Перевіряємо чи клікнули по кнопці, тоді зчитуємо ім'я товару в картці
+  const button = e.target.closest('.product-add-to-cart-btn');
+  if (button) {
+    const nameElement = button
+      .closest('.product-card__roll')
+      .querySelector('.product-name');
+    const addToCartText = button
+      .closest('.product-card__roll')
+      .querySelector('.btn-cart-text');
+    const addToCartIcon = button
+      .closest('.product-card__roll')
+      .querySelector('.add-to-cart-icon');
+
+    // Перевіряємо чи таке ім'я товару є в масиві, якщо немає - додаємо / в іншому випадку - видаляємо
+    // Змінюємо вигляд кнопки
+    const name = nameElement.textContent;
+    const index = parsedNameArray.indexOf(name);
+
+    if (index === -1) {
+      parsedNameArray.push(name);
+      button.style.backgroundColor = '#00cc2d';
+      addToCartText.style.display = 'block';
+      addToCartIcon.style.display = 'none';
+    } else {
+      parsedNameArray.splice(index, 1);
+      button.style.backgroundColor = '#f5f5f7';
+      addToCartText.style.display = 'none';
+      addToCartIcon.style.display = 'block';
+    }
+
+    // Фільтруємо масив об'єктів з суші по іменах товарів доданих до корзини. Додаємо новий масив в local storage
+    addItemToStorage(roll, sushi, parsedNameArray);
 
     // Оновлюємо масив з іменами доданими в кошик для наступного кліку
     localStorage.setItem('array', JSON.stringify(parsedNameArray));
@@ -76,9 +120,9 @@ export function openCart() {
 
 // ---------------------------------------------------Функції---------------------------------------------------
 // Записуємо обрані товари у сховище
-function addItemToStorage(object, array) {
-  const orderSushi = object.filter(item => array.includes(item.name));
-  localStorage.setItem('pre-order', JSON.stringify(orderSushi));
+function addItemToStorage(object1, object2, array) {
+  const order = [...object1, ...object2].filter(item => array.includes(item.name));
+  localStorage.setItem('pre-order', JSON.stringify(order));
 }
 
 //   Рендеримо розмітку корзини

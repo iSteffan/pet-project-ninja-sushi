@@ -5,7 +5,7 @@ import { checkMeditationTime } from './js/page-load-event';
 import { loadMoreSushi } from './js/load-more-sushi';
 import { loadMoreRoll } from './js/load-more-roll';
 // import { sushi } from './js/sushi-object';
-import { addToCart, openCart } from './js/desktop-cart';
+import { addSushiToCart, openCart, addRollToCart } from './js/desktop-cart';
 import { openMobileCart } from './js/mobile-cart';
 import { mobileMenu } from './js/mobile-menu';
 import '@splidejs/splide/dist/css/splide-core.min.css';
@@ -20,6 +20,7 @@ const refs = {
   formSushiFilter: document.getElementById('sort-sushi'),
   formRollFilter: document.getElementById('sort-roll'),
   sushiContainer: document.querySelector('.section-sushi__container'), // Контейнер куди рендеряться суші
+  rollContainer: document.querySelector('.section-roll__container'), // Контейнер куди рендеряться hjkb
   openCartBtn: document.querySelector('.cart-btn'),
   openMenuCartBtn: document.querySelector('.js-open-menu-cart'),
 };
@@ -48,8 +49,11 @@ refs.formSushiFilter.addEventListener('change', selectHandle);
 // Фільтр ролів
 refs.formRollFilter.addEventListener('change', selectRollHandle);
 
-// Додавання товару в корзину
-refs.sushiContainer.addEventListener('click', addToCart);
+// Додавання суші в корзину
+refs.sushiContainer.addEventListener('click', addSushiToCart);
+
+// Додавання ролів в корзину
+refs.rollContainer.addEventListener('click', addRollToCart);
 
 // Відкриття корзини
 refs.openCartBtn.addEventListener('click', openCart);
