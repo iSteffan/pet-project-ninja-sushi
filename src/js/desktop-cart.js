@@ -216,7 +216,7 @@ function deleteFromCart() {
 }
 
 // Видаляючи товар з кошика повертаємо кнопку "додано в кошик в початковий стан"
-export function changeBtn(element) {
+function changeBtn(element) {
   const nameElement = element.closest('.cart-item').querySelector('.cart-item__name');
 
   // отримання всіх елементів з класом "product-card"
