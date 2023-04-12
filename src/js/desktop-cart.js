@@ -204,7 +204,8 @@ function deleteFromCart() {
       // Оновлюємо сховище
       localStorage.setItem('pre-order', JSON.stringify(orderSushi));
       localStorage.setItem('array', JSON.stringify(orderNameArray));
-      changeBtn(deleteBtn);
+      changeBtnSushi(deleteBtn);
+      changeBtnRoll(deleteBtn);
 
       // Видаляємо елемент з розмітки
       element.remove();
@@ -215,12 +216,36 @@ function deleteFromCart() {
   });
 }
 
-// Видаляючи товар з кошика повертаємо кнопку "додано в кошик в початковий стан"
-function changeBtn(element) {
+// Видаляючи товар Суші з кошика повертаємо кнопку "додано в кошик в початковий стан"
+export function changeBtnSushi(element) {
   const nameElement = element.closest('.cart-item').querySelector('.cart-item__name');
 
   // отримання всіх елементів з класом "product-card"
   const productCards = document.querySelectorAll('.product-card');
+
+  // ітерація по всіх елементах
+  productCards.forEach(card => {
+    const productName = card.querySelector('.product-name').textContent;
+
+    // перевірка, чи текстовий вміст співпадає зі шуканим ім'ям
+    if (productName === nameElement.textContent) {
+      const buttonText = card.querySelector('.btn-cart-text');
+      const button = card.querySelector('.product-add-to-cart-btn');
+      const icon = card.querySelector('.add-to-cart-icon');
+
+      buttonText.style.display = 'none';
+      button.style.backgroundColor = '#f5f5f7';
+      icon.style.display = 'block';
+    }
+  });
+}
+
+// Видаляючи товар Роли з кошика повертаємо кнопку "додано в кошик в початковий стан"
+export function changeBtnRoll(element) {
+  const nameElement = element.closest('.cart-item').querySelector('.cart-item__name');
+
+  // отримання всіх елементів з класом "product-card"
+  const productCards = document.querySelectorAll('.product-card__roll');
 
   // ітерація по всіх елементах
   productCards.forEach(card => {

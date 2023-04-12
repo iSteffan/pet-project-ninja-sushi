@@ -1,4 +1,4 @@
-import { changeBtn, addItemToCart } from './desktop-cart';
+import { addItemToCart, changeBtnRoll, changeBtnSushi } from './desktop-cart';
 
 const refs = {
   cartMobileContainer: document.querySelector('.cart-mobile-items'),
@@ -115,7 +115,8 @@ function deleteFromCart() {
       localStorage.setItem('pre-order', JSON.stringify(orderSushi));
       localStorage.setItem('array', JSON.stringify(orderNameArray));
       // Видаляючи товар з кошика повертаємо кнопку "додано в кошик в початковий стан"
-      changeBtn(deleteBtn);
+      changeBtnRoll(deleteBtn);
+      changeBtnSushi(deleteBtn);
 
       // Видаляємо елемент з розмітки
       element.remove();
