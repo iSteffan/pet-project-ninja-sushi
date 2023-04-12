@@ -95,9 +95,12 @@ export function addRollToCart(e) {
 
 // Функція відкриття десктопної корзини
 export function openCart() {
+  const cart = document.querySelector('.cart');
   refs.cart.classList.remove('hide-cart');
+  bodyScrollLock.disableBodyScroll(cart);
 
   refs.closeCartBtn.addEventListener('click', () => {
+    bodyScrollLock.enableBodyScroll(cart);
     refs.cart.classList.add('hide-cart');
   });
 
