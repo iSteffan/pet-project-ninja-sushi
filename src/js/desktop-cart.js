@@ -8,6 +8,7 @@ const refs = {
   itemAmount: document.querySelectorAll('.item-count'),
   totalPrice: document.querySelectorAll('.money-to-pay__value'),
   cart: document.querySelector('[data-modal="cart"]'),
+  cart1: document.querySelector('.cart'),
   closeCartBtn: document.querySelector('.cart__close-btn'),
 };
 
@@ -96,9 +97,11 @@ export function addRollToCart(e) {
 // Функція відкриття десктопної корзини
 export function openCart() {
   refs.cart.classList.remove('hide-cart');
+  refs.cart1.classList.remove('hide');
 
   refs.closeCartBtn.addEventListener('click', () => {
     refs.cart.classList.add('hide-cart');
+    refs.cart1.classList.add('hide');
   });
 
   //   Рендеримо розмітку корзини
